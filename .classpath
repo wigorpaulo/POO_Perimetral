@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="BRENO DE CASTRO/src"/>
+	<classpathentry kind="src" path="CAMILLA RODRIGUES/src"/>
+	<classpathentry kind="src" path="CAUA PABLO/src"/>
+	<classpathentry kind="src" path="DANLUCAS DE MENDONCA/src"/>
+	<classpathentry kind="src" path="DAVY REIS/src"/>
+	<classpathentry kind="src" path="DILVANO FRAGA/src"/>
+	<classpathentry kind="src" path="GADIEL PACHECO/src"/>
+	<classpathentry excluding="view/" kind="src" path="GUILHERME TUNDELA/src"/>
+	<classpathentry kind="src" path="GUILHERME TUNDELA/src/view"/>
+	<classpathentry kind="src" path="JOAO MANOEL/src"/>
+	<classpathentry kind="src" path="LUCAS FERREIRA/src"/>
+	<classpathentry kind="src" path="MURIELLE FERREIRA/src"/>
+	<classpathentry kind="src" path="REINER SOARES/src"/>
+	<classpathentry kind="src" path="ROMULO SOUZA/src"/>
+	<classpathentry kind="src" path="RUAN DE ALMEIDA/src"/>
+	<classpathentry kind="src" path="THYAGO HENRIQUE/src"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
