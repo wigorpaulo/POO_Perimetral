@@ -50,7 +50,7 @@ public void menuCadastro() {
 	System.out.print("Informe id :");
 	tipoPessoa.setId(ler.nextInt());
 	System.out.print("Informe o Nome  :");
-	tipoPessoa.setNome(ler.nextLine());
+	tipoPessoa.setNome(ler.next());
 	System.out.print("Informe o Tipo Pessoa  :");
 	tipoPessoa.setTipo(ler.next());
 	System.out.println("");
@@ -86,11 +86,11 @@ public void menuAtualizar(TipoPessoa tipoPessoa) {
     System.out.println("__________________________________");
     System.out.println("Atualizando id :");
     tipoPessoa.setId(ler.nextInt());
-    System.out.println("Atualizando nome :");
-	tipoPessoa.setNome(ler.next());
-	System.out.println("Atualizando Tipo Pessoa :");
-	tipoPessoa.setTipo(ler.nextLine());		
-	System.out.println("Atualizado com sucesso !!!");
+    System.out.print("Atualizando nome :");
+	tipoPessoa.setNome(ler.nextLine());
+	System.out.print("Atualizando Tipo Pessoa :");
+	tipoPessoa.setTipo(ler.next());		
+	System.out.print("Atualizado com sucesso !!!");
 	System.out.println("");
     System.out.println("__________________________________");
     

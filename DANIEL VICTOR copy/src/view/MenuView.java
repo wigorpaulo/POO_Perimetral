@@ -21,9 +21,9 @@ public class MenuView {
         System.out.println("[1]-Cadastrar Usuario");
         System.out.println("[2]-Cadastrar Fornecedor");
         System.out.println("[3]-Castrar Tipo Pessoa");
-        System.out.println("[5]-Cadastrar Cliente");
-        System.out.println("[6]-Cadastrar Produto");
-        System.out.println("[7]-Sair");
+        System.out.println("[4]-Cadastrar Cliente");
+        System.out.println("[5]-Cadastrar Produto");
+        System.out.println("[6]-Sair");
         System.out.println("");
          int x=ler.nextInt();
 	    System.out.println("____________________________");
@@ -42,7 +42,7 @@ public class MenuView {
             TipoPessoaView tipoPessoa = new TipoPessoaView();
             tipoPessoa.menuTipoPessoa(null);
                  break;
-            case 7: System.out.println("Programa finalizado!");
+            case 6: System.out.println("Programa finalizado!");
             break;
             default: System.out.println("Opcao invalida");
             break;
