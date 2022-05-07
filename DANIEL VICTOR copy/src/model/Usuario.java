@@ -9,7 +9,7 @@ public class Usuario {
 	private String password;
 	
 	
-	//Mï¿½todos
+	//Métodos
 	
 	public int getId() {
 		return id;
