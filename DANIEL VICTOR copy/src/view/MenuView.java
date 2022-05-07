@@ -1,4 +1,5 @@
 package view;
+import java.time.Year;
 import java.util.Scanner;
 import java.util.zip.Deflater;
 
@@ -35,8 +36,12 @@ public class MenuView {
                  break;
             case 2 :
             FornecedorView fornecedor = new FornecedorView();
-            fornecedor.menuFornecedor();
-                 break;     
+            fornecedor.menuFornecedor(null);
+                 break; 
+            case 3:
+            TipoPessoaView tipoPessoa = new TipoPessoaView();
+            tipoPessoa.menuTipoPessoa(null);
+                 break;
             case 7: System.out.println("Programa finalizado!");
             break;
             default: System.out.println("Opcao invalida");
