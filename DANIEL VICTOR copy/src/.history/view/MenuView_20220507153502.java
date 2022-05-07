@@ -35,7 +35,7 @@ public class MenuView {
                  break;
             case 2 :
             FornecedorView fornecedor = new FornecedorView();
-            fornecedor.menuFornecedor();
+            fornecedor.menuF
                  break;     
             case 7: System.out.println("Programa finalizado!");
             break;

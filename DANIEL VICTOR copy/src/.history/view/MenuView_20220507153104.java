@@ -33,10 +33,8 @@ public class MenuView {
             UsuarioView usuario =new UsuarioView();
             usuario.menuUsuario(null);
                  break;
-            case 2 :
-            FornecedorView fornecedor = new FornecedorView();
-            fornecedor.menuFornecedor();
-                 break;     
+            case 2: Fornecedor obj = new Fornecedor();
+            obj.menuFornecedor(user :);     
             case 7: System.out.println("Programa finalizado!");
             break;
             default: System.out.println("Opcao invalida");

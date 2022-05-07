@@ -34,8 +34,8 @@ public class MenuView {
             usuario.menuUsuario(null);
                  break;
             case 2 :
-            FornecedorView fornecedor = new FornecedorView();
-            fornecedor.menuFornecedor();
+            FornecedorView fornecedor = new Fornecedor();
+            fornecedor.menuFornecedor(user : null);
                  break;     
             case 7: System.out.println("Programa finalizado!");
             break;

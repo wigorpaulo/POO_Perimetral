@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.zip.Deflater;
 
 import model.Usuario;
-import model.Fornecedor;
+import model.For
 public class MenuView {
 
 
@@ -33,10 +33,7 @@ public class MenuView {
             UsuarioView usuario =new UsuarioView();
             usuario.menuUsuario(null);
                  break;
-            case 2 :
-            FornecedorView fornecedor = new FornecedorView();
-            fornecedor.menuFornecedor();
-                 break;     
+            case 2: Forne     
             case 7: System.out.println("Programa finalizado!");
             break;
             default: System.out.println("Opcao invalida");

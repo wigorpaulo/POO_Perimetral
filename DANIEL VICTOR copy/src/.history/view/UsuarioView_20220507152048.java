@@ -21,19 +21,7 @@ public class UsuarioView {
         System.out.println("");
 		
 		
-
-		switch(x){
-			case 1 : menuCadastro();break;
-			case 2 : menuListar(user);break;
-			case 3 : menuAtualizar(user);break;
-			case 4 : menuDeletar(user);break;
-			case 5 : MenuView menu = new MenuView();
-			         menu.menu();break;
-			default: System.out.println("Opcao invalida !");break;
-		}
-
-
-}
+V
 	
 	public void menuCadastro() {
 		

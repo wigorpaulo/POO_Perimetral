@@ -33,7 +33,7 @@ public class UsuarioView {
 		}
 
 
-}
+	}
 	
 	public void menuCadastro() {
 		
