@@ -14,11 +14,15 @@ public class MenuView {
         int escolhaDoUsuario = ler.nextInt();
 
         if (escolhaDoUsuario == 1){
+            System.out.println("Opção Escolhida: Cadastrar Usuario");
             UsuarioView user1 = new UsuarioView();
             user1.menuDoUsuario(null);
         }
         else if(escolhaDoUsuario == 2){
             System.out.println("Opção Escolhida: Cadastrar Fornecedor");
+            UsuarioView user1 = new UsuarioView();
+            user1.CadForn(null);
+
         }
         else if(escolhaDoUsuario == 3){
             System.out.println("Opção Escolhida: Cadastrar Tipo de Pessoa");
