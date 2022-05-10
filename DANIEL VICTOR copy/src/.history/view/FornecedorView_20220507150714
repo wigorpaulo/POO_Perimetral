@@ -1,0 +1,26 @@
+package view;
+import java.util.Scanner;
+import model.Fornecedor;
+
+Scanner ler = new Scanner(System.in);
+
+public Class FornecedorView{
+
+public void Atualizar(Fornecedor user)
+ 
+System.out.println("");
+System.out.println("__________________________________");
+System.out.print("Atualizando Razão Social :");
+user.setRazaoSocial (ler.nextLine());
+System.out.print("Atualizando Fantasia :");
+user.setFantasia (ler.nextLine());
+System.out.println("Atualizar CNPJ :");
+user.setCnpj(ler.nextLine());	
+System.out.println()	
+System.out.println("Atualizado com sucesso !!!");
+System.out.println("");
+System.out.println("__________________________________");
+
+menuFornecedor(user);
+
+}

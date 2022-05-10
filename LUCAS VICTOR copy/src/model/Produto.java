@@ -12,7 +12,7 @@ public class Produto {
   private String cor;
   private float preco_compra;
   private float preco_venda;
-  private Date dataValidade;
+  private String dataValidade;
   
   //Métodos 
   
@@ -58,11 +58,11 @@ public float getPreco_venda() {
 public void setPreco_venda(float preco_venda) {
 	this.preco_venda = preco_venda;
 }
-public Date getDataValidade() {
+public String getDataValidade() {
 	return dataValidade;
 }
-public void setDataValidade(Date dataValidade) {
-	this.dataValidade = dataValidade;
+public void setDataValidade(String value) {
+	this.dataValidade = value;
 }
   
 

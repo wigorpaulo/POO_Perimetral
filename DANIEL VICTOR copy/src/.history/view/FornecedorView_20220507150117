@@ -1,0 +1,12 @@
+package view;
+import java.util.Scanner;
+import model.Fornecedor;
+
+Scanner ler = new Scanner(System.in);
+
+public Class FornecedorView{
+
+public void Atualizar(Fornecedor user)
+ System.out.println
+
+}
