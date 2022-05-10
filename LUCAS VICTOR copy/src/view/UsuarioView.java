@@ -69,7 +69,7 @@ public class UsuarioView {
 		System.out.println("__________________________________");
 		System.out.println("");
 		
-		menuUsuario(null);
+		menuUsuario(user);
 	}
 	
 

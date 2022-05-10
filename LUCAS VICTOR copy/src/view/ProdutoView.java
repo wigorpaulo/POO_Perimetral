@@ -90,7 +90,7 @@ public class ProdutoView {
 			System.out.println("__________________________________");
 			System.out.println("");
 			
-			menuProduto(null);
+			menuProduto(produto);
 		}
 		
 
