@@ -6,27 +6,22 @@ public class TipoProduto {
 
 	private int id;
 	private String descricao;
-
+	
 	// métodos
-
-	public TipoProduto(int id, String descricao) {
-		this.id = id;
-		this.descricao = descricao;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	
 	public int getId() {
 		return id;
 	}
-
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getDescricao() {
+		return descricao;
+	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
 
-	public String getDescricao() {
-		return descricao;
-	}
+
+
 }
