@@ -4,8 +4,6 @@ public class Cliente {
  private int id ;
  private String nome ;
  private String cpf;
- private String genero;
- private String endereco;
  private String telefone;
  
  public int getId() {
@@ -27,18 +25,7 @@ public String getCpf() {
 public void setCpf(String cpf) {
 	this.cpf = cpf;
 }
-public String getGenero() {
-	return genero;
-}
-public void setGenero(String genero) {
-	this.genero = genero;
-}
-public String getEndereco() {
-	return endereco;
-}
-public void setEndereco(String endereco) {
-	this.endereco = endereco;
-}
+
 public String getTelefone() {
 	return telefone;
 }
