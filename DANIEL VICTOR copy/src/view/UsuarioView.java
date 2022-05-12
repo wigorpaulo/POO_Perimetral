@@ -59,6 +59,7 @@ public class UsuarioView {
 		System.out.println("______________________________");
         System.out.println("");
 
+        
 		usuarioController.cadastrar(usuario);	
 		menuUsuario(usuario);
 	}
