@@ -13,7 +13,7 @@ public class ClienteView {
 		
     System.out.println("");
     System.out.println("____________________________");
-	System.out.println("  *** Menu de Usuario ***");
+	System.out.println("  *** Menu de Cliente ***");
 	System.out.println("");
 	System.out.println("[1]- Cadastrar");
 	System.out.println("[2]- Listar Todos");
@@ -47,7 +47,7 @@ public class ClienteView {
 			
 			System.out.println("");
 		    System.out.println("______________________________");
-			System.out.println(" *** Cadastro de Usuario ***");
+			System.out.println(" *** Cadastro de Cliente ***");
 			System.out.println(" ");
 			System.out.print("Informe o ID :");
 			cliente.setId(ler.nextInt());
@@ -74,7 +74,7 @@ public class ClienteView {
 		
 			System.out.println("");
 		    System.out.println("__________________________________");
-		    System.out.println("  *** Usuarios Cadastrados  ***");
+		    System.out.println("  *** Clientes Cadastrados  ***");
 		    System.out.println("");
 		    System.out.println("ID        : "+ cliente.getId());
 			System.out.println("Nome      : "+ cliente.getNome() );

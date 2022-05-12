@@ -11,7 +11,7 @@ public class TipoProdutoView {
 
 	    System.out.println("");
 	    System.out.println("____________________________");
-		System.out.println("  *** Menu de Fornecedor ***");
+		System.out.println("  *** Menu de Tipo Produto ***");
 		System.out.println("");
 		System.out.println("[1]- Cadastrar");
 		System.out.println("[2]- Listar Todos");
