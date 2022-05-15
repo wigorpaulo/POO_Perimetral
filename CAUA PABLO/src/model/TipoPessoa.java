@@ -13,7 +13,11 @@ public class TipoPessoa {
         return descricao;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
-
-
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 }
