@@ -7,6 +7,7 @@ public class Main {
         LoginView user1 = new LoginView();
         user1.inicio();
         //teste
+        //seundo teste de clone com o intelijj
 
     }
 }

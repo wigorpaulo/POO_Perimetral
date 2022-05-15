@@ -1,0 +1,10 @@
+package view;
+import java.util.Scanner;
+import model.Fornecedor;
+
+Scanner ler = new Scanner(S);
+public Class Fornecedor{
+
+ 
+
+}

@@ -1,0 +1,9 @@
+package view;
+import java.util.Scanner;
+import model.Usuari;
+
+public Class Fornecedor{
+
+ 
+
+}

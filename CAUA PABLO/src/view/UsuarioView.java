@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 public class UsuarioView {
     Scanner ler = new Scanner(System.in);
-
-
-    //METODO DE MENU DO USUARIO
+    
+    //___________________ETAPA DO USUARIO___________________
     public void menuDoUsuario(Usuario username) {
 
         int escolha;
@@ -25,6 +24,7 @@ public class UsuarioView {
             men.men();
         }
     }
+
 
     //MÉTODO DE CADASTRO DO USUARIO
     public void menuCadastro() {
