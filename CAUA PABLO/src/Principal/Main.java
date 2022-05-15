@@ -8,6 +8,5 @@ public class Main {
         user1.inicio();
         //teste
 
-
     }
 }
