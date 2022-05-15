@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry excluding=".history/" kind="src" path=""/>
-	<classpathentry kind="src" path=".history"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>

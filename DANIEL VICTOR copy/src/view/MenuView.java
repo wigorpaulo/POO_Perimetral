@@ -1,10 +1,8 @@
 package view;
-import java.time.Year;
 import java.util.Scanner;
 import java.util.zip.Deflater;
 
 import model.Usuario;
-import model.Fornecedor;
 public class MenuView {
 
 
@@ -21,7 +19,6 @@ public class MenuView {
         System.out.println("[1]-Cadastrar Usuario");
         System.out.println("[2]-Cadastrar Fornecedor");
         System.out.println("[3]-Castrar Tipo Pessoa");
-        System.out.println("[4]-Castrar Tipo Produto");
         System.out.println("[5]-Cadastrar Cliente");
         System.out.println("[6]-Cadastrar Produto");
         System.out.println("[7]-Sair");
@@ -34,26 +31,6 @@ public class MenuView {
             case 1 : 
             UsuarioView usuario =new UsuarioView();
             usuario.menuUsuario(null);
-                 break;
-            case 2 :
-            FornecedorView fornecedor = new FornecedorView();
-            fornecedor.menuFornecedor(null);
-                 break; 
-            case 3:
-            TipoPessoaView tipoPessoa = new TipoPessoaView();
-            tipoPessoa.menuTipoPessoa(null);
-                 break;
-            case 4:
-            TipoProdutoView tipoProduto = new TipoProdutoView();
-            tipoProduto.menuTipoProduto(null);
-                 break;
-            case 5:
-            ClienteView cliente = new ClienteView();
-            cliente.menuCliente(null);
-                 break;
-            case 6:
-            ProdutoView produto = new ProdutoView();
-            produto.menuProduto(null);
                  break;
             case 7: System.out.println("Programa finalizado!");
             break;

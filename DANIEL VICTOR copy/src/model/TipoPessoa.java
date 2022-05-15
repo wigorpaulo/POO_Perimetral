@@ -12,12 +12,18 @@ public class TipoPessoa {
 
   public String getNome() {
     return nome;
-  } 
+  }
 
   public void setNome(String nome) {
     this.nome = nome;
   }
 
+  public TipoPessoa(int id, String tipo, String nome) {
+    this.id = id;
+    this.tipo = tipo;
+    this.nome = nome;
+
+  }
 
   public void setId(int id) {
     this.id = id;

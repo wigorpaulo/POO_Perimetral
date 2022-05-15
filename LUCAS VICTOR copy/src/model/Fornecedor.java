@@ -37,6 +37,13 @@ public class Fornecedor {
 	public void setTipoPessoa(int tipoPessoa) {
 		this.tipoPessoa = tipoPessoa;
 	}
-
+	public Fornecedor(int id, String razaoSocial, String fantasia, String cnpj, int tipoPessoa) {
+		this.id = id;
+		this.razaoSocial = razaoSocial;
+		this.fantasia = fantasia;
+		this.cnpj = cnpj;
+		this.tipoPessoa = tipoPessoa;
+	}
+	
 	
 }

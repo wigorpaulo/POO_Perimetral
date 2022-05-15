@@ -20,7 +20,7 @@ public class Fornecedor {
         return cnpj;
     }
 
-    public  String getFantasia() {
+    public String getFantasia() {
         return fantasia;
     }
 

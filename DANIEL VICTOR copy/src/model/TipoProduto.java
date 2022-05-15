@@ -9,6 +9,11 @@ public class TipoProduto {
 
 	// métodos
 
+	public TipoProduto(int id, String descricao) {
+		this.id = id;
+		this.descricao = descricao;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
