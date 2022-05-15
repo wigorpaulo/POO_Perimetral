@@ -6,12 +6,12 @@ import model.TipoProduto;
 
 public class TipoProdutoView {
 	
-	public void menuTipoProduto() {
+	public void menuTipoProduto(TipoProduto tipoProduto) {
 		Scanner ler =new Scanner(System.in);
 
 	    System.out.println("");
 	    System.out.println("____________________________");
-		System.out.println("  *** Menu de Fornecedor ***");
+		System.out.println("  *** Menu de Tipo Produto ***");
 		System.out.println("");
 		System.out.println("[1]- Cadastrar");
 		System.out.println("[2]- Listar Todos");
@@ -26,9 +26,9 @@ public class TipoProdutoView {
        switch (x) {
        
        case 1 : cadastrarTipoProduto();break;
-       case 2 : listarTipoProduto();break;
-       case 3 : atualizarTipoProduto();break;
-       case 4 : deletarTipoProduto();break;
+       case 2 : listarTipoProduto(tipoProduto);break;
+       case 3 : atualizarTipoProduto(tipoProduto);break;
+       case 4 : deletarTipoProduto(tipoProduto);break;
 	   case 5 : MenuView menu = new MenuView();
 	            menu.menu();break;
 	   default: System.out.println("Opcao invalida !");break;
@@ -53,11 +53,11 @@ public class TipoProdutoView {
 		System.out.println("______________________________");
         System.out.println("");
         
-        menuTipoProduto();
+        menuTipoProduto(tipoProduto);
 	}
 	
-	public void listarTipoProduto() {
-		TipoProduto tipoProduto = new TipoProduto();
+	public void listarTipoProduto(TipoProduto tipoProduto) {
+		
 		
 		System.out.println("");
 	    System.out.println("__________________________________");
@@ -69,12 +69,12 @@ public class TipoProdutoView {
 		System.out.println("__________________________________");
 		System.out.println("");
 		
-	    menuTipoProduto();
+	    menuTipoProduto(tipoProduto);
 	}
 	
-	public void atualizarTipoProduto() {
+	public void atualizarTipoProduto(TipoProduto tipoProduto) {
 		Scanner ler =new Scanner(System.in);
-		TipoProduto tipoProduto = new TipoProduto();
+	
 		
 		System.out.println("");
 	    System.out.println("______________________________");
@@ -87,12 +87,12 @@ public class TipoProdutoView {
 		System.out.println("______________________________");
         System.out.println("");
         
-        menuTipoProduto();
+        menuTipoProduto(tipoProduto);
 	
 	}
 	
-	public void deletarTipoProduto() {
-		TipoProduto tipoProduto = new TipoProduto();
+	public void deletarTipoProduto(TipoProduto tipoProduto) {
+	
 			
 		    System.out.println("");
 		    System.out.println("__________________________________");
@@ -103,6 +103,6 @@ public class TipoProdutoView {
 		    
 		    tipoProduto.setId(0);
 		    tipoProduto.setDescricao(null);
-	        menuTipoProduto();		    
+	        menuTipoProduto(tipoProduto);		    
 	}
 }

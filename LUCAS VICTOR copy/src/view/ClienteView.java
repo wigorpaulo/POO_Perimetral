@@ -7,13 +7,13 @@ import model.Usuario;
 
 public class ClienteView {
 
-	public void menuCliente() {
+	public void menuCliente(Cliente cliente) {
 	Scanner ler =new Scanner(System.in);
-    Cliente cliente = new Cliente();
+  
 		
     System.out.println("");
     System.out.println("____________________________");
-	System.out.println("  *** Menu de Usuario ***");
+	System.out.println("  *** Menu de Cliente ***");
 	System.out.println("");
 	System.out.println("[1]- Cadastrar");
 	System.out.println("[2]- Listar Todos");
@@ -29,9 +29,9 @@ public class ClienteView {
 
 	switch(x){
 		case 1 : cadastrarCliente();break;
-		case 2 : listarCliente();break;
-		case 3 : atualizarCliente();break;
-		case 4 : deletarCliente();break;
+		case 2 : listarCliente(cliente);break;
+		case 3 : atualizarCliente(cliente);break;
+		case 4 : deletarCliente(cliente);break;
 		case 5 : MenuView menu = new MenuView();
 		         menu.menu();break;
 		default: System.out.println("Opcao invalida !");break;
@@ -47,7 +47,7 @@ public class ClienteView {
 			
 			System.out.println("");
 		    System.out.println("______________________________");
-			System.out.println(" *** Cadastro de Usuario ***");
+			System.out.println(" *** Cadastro de Cliente ***");
 			System.out.println(" ");
 			System.out.print("Informe o ID :");
 			cliente.setId(ler.nextInt());
@@ -67,14 +67,14 @@ public class ClienteView {
 	        System.out.println("");
 
 				
-			menuCliente();
+			menuCliente(cliente);
 		}
 	   
-	   public void listarCliente() {
-			Cliente cliente = new Cliente();
+	   public void listarCliente(Cliente cliente) {
+		
 			System.out.println("");
 		    System.out.println("__________________________________");
-		    System.out.println("  *** Usuarios Cadastrados  ***");
+		    System.out.println("  *** Clientes Cadastrados  ***");
 		    System.out.println("");
 		    System.out.println("ID        : "+ cliente.getId());
 			System.out.println("Nome      : "+ cliente.getNome() );
@@ -86,13 +86,13 @@ public class ClienteView {
 			System.out.println("__________________________________");
 			System.out.println("");
 			
-			menuCliente();
+			menuCliente(cliente);
 	   }
 	   
-	   public void atualizarCliente() {
+	   public void atualizarCliente(Cliente cliente) {
 		   Scanner ler = new Scanner(System.in);
 			
-			Cliente cliente = new Cliente();
+		
 			
 			System.out.println("");
 		    System.out.println("______________________________");
@@ -115,12 +115,11 @@ public class ClienteView {
 	        System.out.println("");
 
 				
-			menuCliente();
+			menuCliente(cliente);
 		   
 	   }
 	   
-	   public void deletarCliente() {
-			Cliente cliente = new Cliente(); 
+	   public void deletarCliente(Cliente cliente) {
 			
 		    System.out.println("");
 		    System.out.println("__________________________________");
@@ -135,7 +134,7 @@ public class ClienteView {
 		    cliente.setCpf(null);
 		    cliente.setId(0);
 		    
-			menuCliente();
+			menuCliente(cliente);
 	   }
 }
 	   
