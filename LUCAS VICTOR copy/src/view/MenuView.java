@@ -39,14 +39,14 @@ public class MenuView {
                      fornecedor.menuFornecedor(null); break;
                      
             case 3: TipoPessoaView tipoPessoa = new TipoPessoaView();
-                    tipoPessoa.menuTipoPessoa(null); break;
+                    tipoPessoa.menuTipoPessoa(); break;
                     
             case 4: TipoProdutoView tipoProduto = new TipoProdutoView();
-                    tipoProduto.menuTipoProduto(null); break;
+                    tipoProduto.menuTipoProduto(); break;
             	
             	
             case 5:ClienteView cliente = new ClienteView(); 
-                  cliente.menuCliente(null); break;
+                  cliente.menuCliente(); break;
             
             case 6:	ProdutoView produto = new ProdutoView();
                     produto.menuProduto(null);break;

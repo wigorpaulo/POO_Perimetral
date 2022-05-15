@@ -11,7 +11,7 @@ public class ProdutoView {
 
 		    System.out.println("");
 		    System.out.println("____________________________");
-			System.out.println("  *** Menu de Produto ***");
+			System.out.println("  *** Menu de Cliente ***");
 			System.out.println("");
 			System.out.println("[1]- Cadastrar");
 			System.out.println("[2]- Listar Todos");
@@ -76,7 +76,7 @@ public class ProdutoView {
 			
 			System.out.println("");
 		    System.out.println("__________________________________");
-		    System.out.println("  *** Produtos Cadastrados  ***");
+		    System.out.println("  *** Usuarios Cadastrados  ***");
 		    System.out.println("");
 			System.out.println("Codigo           :" + produto.getCodigo());
 			System.out.println("Descricao        :"+produto.getDescricao());
@@ -90,7 +90,7 @@ public class ProdutoView {
 			System.out.println("__________________________________");
 			System.out.println("");
 			
-			menuProduto(produto);
+			menuProduto(null);
 		}
 		
 

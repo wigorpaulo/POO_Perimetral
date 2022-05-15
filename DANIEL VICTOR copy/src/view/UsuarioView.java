@@ -1,6 +1,5 @@
 package view;
 import java.util.Scanner;
-import controller.UsuarioController;
 import model.Usuario;
 public class UsuarioView {
 	
@@ -25,7 +24,7 @@ public class UsuarioView {
 
 		switch(x){
 			case 1 : menuCadastro();break;
-			case 2 : menuListar();break;
+			case 2 : menuListar(user);break;
 			case 3 : menuAtualizar(user);break;
 			case 4 : menuDeletar(user);break;
 			case 5 : MenuView menu = new MenuView();
@@ -40,51 +39,37 @@ public class UsuarioView {
 		
 		Scanner ler = new Scanner(System.in);
 		
-		Usuario usuario = new Usuario();
-		
-		UsuarioController usuarioController = new UsuarioController();
-		
-		
+		Usuario user = new Usuario();
 		
 		System.out.println("");
 	    System.out.println("______________________________");
 		System.out.println(" *** Cadastro de Usuario ***");
 		System.out.println(" ");
 		System.out.print("Informe Username :");
-		usuario.setUsername(ler.nextLine());
+		user.setUsername(ler.nextLine());
 		System.out.print("Iforme Password  :");
-		usuario.setPassword(ler.nextLine());
+		user.setPassword(ler.nextLine());
 		System.out.println("");
 		System.out.println(" *** Cadastro Realizado! ***");
 		System.out.println("______________________________");
         System.out.println("");
 
-        
-		usuarioController.cadastrar(usuario);	
-		menuUsuario(usuario);
+			
+		menuUsuario(user);
 	}
-	
-	public void menuListar() {
+	public void menuListar(Usuario user) {
 		
-	 Usuario usuario = new Usuario();
-	 
-	 UsuarioController usuarioController = new UsuarioController();
-	 
-	 usuarioController.listar();
-	 
-	 menuUsuario(usuario);
-	 
-//		System.out.println("");
-//	    System.out.println("__________________________________");
-//	    System.out.println("  *** Usuarios Cadastrados  ***");
-//	    System.out.println("");
-//		System.out.println("Usuario :" + usuario.listar(ler.next()));
-//		System.out.println("Senha   : "+ usuario.listar(null));
-//		System.out.println("");
-//		System.out.println("__________________________________");
-//		System.out.println("");
-//		
+		System.out.println("");
+	    System.out.println("__________________________________");
+	    System.out.println("  *** Usuarios Cadastrados  ***");
+	    System.out.println("");
+		System.out.println("Usuario :" + user.getUsername() );
+		System.out.println("Senha   : "+ user.getPassword());
+		System.out.println("");
+		System.out.println("__________________________________");
+		System.out.println("");
 		
+		menuUsuario(null);
 	}
 	
 

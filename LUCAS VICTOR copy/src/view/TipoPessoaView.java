@@ -5,7 +5,7 @@ import java.util.Scanner;
 import model.TipoPessoa;
 public class TipoPessoaView {
 	
-	public void menuTipoPessoa(TipoPessoa tipoPessoa) {
+	public void menuTipoPessoa() {
 		
 		Scanner ler =new Scanner(System.in);
 
@@ -27,9 +27,9 @@ public class TipoPessoaView {
 
 		switch(x){
 			case 1 : tipoPessoaCadastrar();break;
-			case 2 : tipoPessoaListar(tipoPessoa);break;
-			case 3 : tipoPessoaAtualizar(tipoPessoa);break;
-			case 4 : tipoPessoaDeletar(tipoPessoa);break;
+			case 2 : tipoPessoaListar();break;
+			case 3 : tipoPessoaAtualizar();break;
+			case 4 : tipoPessoaDeletar();break;
 			case 5 : MenuView menu = new MenuView();
 			         menu.menu();break;
 			default: System.out.println("Opcao invalida !");break;
@@ -59,10 +59,11 @@ public class TipoPessoaView {
         System.out.println("");
 
 			
-		menuTipoPessoa(tipoPessoa);
+		menuTipoPessoa();
 	}
 	
-     public void tipoPessoaListar(TipoPessoa tipoPessoa) {
+     public void tipoPessoaListar() {
+ 	    TipoPessoa tipoPessoa = new TipoPessoa();
     		
  		System.out.println("");
  	    System.out.println("__________________________________");
@@ -75,12 +76,13 @@ public class TipoPessoaView {
  		System.out.println("__________________________________");
  		System.out.println("");
  		
- 		menuTipoPessoa(tipoPessoa);
+ 		menuTipoPessoa();
      }
      
-     public void tipoPessoaAtualizar(TipoPessoa tipoPessoa) {
+     public void tipoPessoaAtualizar() {
     	Scanner ler = new Scanner(System.in); 
-    	 
+    	
+    	TipoPessoa tipoPessoa = new TipoPessoa();  
     		
  		System.out.println("");
  	    System.out.println("______________________________");
@@ -96,13 +98,14 @@ public class TipoPessoaView {
  		System.out.println("______________________________");
         System.out.println("");
     	
-        menuTipoPessoa(tipoPessoa);
+        menuTipoPessoa();
      }
      
-     public void tipoPessoaDeletar(TipoPessoa tipoPessoa) {
+     public void tipoPessoaDeletar() {
     	 
     	Scanner ler = new Scanner(System.in);
     	 
+    	TipoPessoa tipoPessoa = new TipoPessoa(); 
     	 
     	System.out.println("");
    	    System.out.println("__________________________________");
@@ -113,7 +116,7 @@ public class TipoPessoaView {
    		tipoPessoa.setId(0);
    		tipoPessoa.setNome(null);
    		tipoPessoa.setTipo(null);
-   		menuTipoPessoa(tipoPessoa);
+   		menuTipoPessoa();
      }
 
 }
