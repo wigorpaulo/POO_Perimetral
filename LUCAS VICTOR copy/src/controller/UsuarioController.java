@@ -4,31 +4,43 @@ import java.util.ArrayList;
 
 import model.Usuario;
 import service.UsuarioService;
+import view.UsuarioView;
 
 public class UsuarioController {
 	
-    public void cadastrar(Usuario usuario) {
-		/*Ler arquivo passando o usuario*/
+    public String cadastrar(Usuario usuario) {
+		/*Ler arquivo passando o usuario*/	
 		UsuarioService usuarioService = new UsuarioService();
-		usuarioService.ler(usuario);
 		
-	  /*	if (usuarioService.ler(usuario)) {
-			System.out.println("Já possui Cadastro");
-			return true;
+	  	if (usuarioService.ler(usuario)) {
+			return "Já possui Cadastro";
 		}
 		else {
-		    usuarioService.escrever(usuario);
-		    System.out.println("Cadastro realizado com sucesso !");	
-		    return false;
+			if (usuarioService.escrever(usuario)) {
+				return "Cadastrado com sucesso!";
+			} else {
+				return "Tente novamente";
+			}
+			
+		} 
+	}
+	
+	public boolean atualizar(Usuario usuario) {
+		
+		UsuarioService usuarioService = new  UsuarioService();
+		usuarioService.atualizar(usuario);
+		
+/*		if () {
+			 return true;
+		}else (){
+			 return false;
 		} */
-	}
-	
-	public void atualizar(Usuario usuario) {
 		
 	}
 	
-	public void deletar(Usuario usuario) {
-		
+	public boolean deletar(Usuario usuario) {		
+		UsuarioService usuarioService = new UsuarioService();
+		return usuarioService.excluir(usuario);		
 	}
 	
 	public Usuario listar(String listar) {

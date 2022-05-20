@@ -4,6 +4,7 @@ import java.util.Scanner;
 import controller.UsuarioControle;
 import controller.UsuarioController;
 import model.Usuario;
+import service.UsuarioService;
 public class UsuarioView {
 	
 	public void menuUsuario(Usuario user){
@@ -41,7 +42,6 @@ public class UsuarioView {
 	public void menuCadastro() {
 	
 		Scanner ler = new Scanner(System.in);
-		
 		Usuario usuario = new Usuario();
 		
 		System.out.println("");
@@ -51,17 +51,22 @@ public class UsuarioView {
 		System.out.print("Informe Username :");
 		usuario.setUsername(ler.nextLine());
 		System.out.print("Iforme Password  :");
-		usuario.setPassword(ler.nextLine());
+		usuario.setPassword(ler.nextLine());		
 		System.out.println("");
-		System.out.println(" *** Cadastro Realizado! ***");
+	//	System.out.println(" *** Cadastro Realizado! ***");
 		System.out.println("______________________________");
         System.out.println("");
 
-    	UsuarioController usuarioController = new UsuarioController();
+		
+		UsuarioController usuarioController = new UsuarioController();
+		
 		usuarioController.cadastrar(usuario);
 		
+	
+    	
+		
 			
-		menuUsuario(usuario);
+		menuUsuario(usuario);		
 	}
 	public void menuListar() {
 		Usuario usuario = new Usuario();
@@ -84,15 +89,20 @@ public class UsuarioView {
 	    username = ler.next();
 	    
 	    UsuarioController usuarioController = new UsuarioController();
-	    usuarioController.listar(username);
-		username.toString();
+	   if (usuarioController.atualizar(user)) {
+		   System.out.println("Usuário Atualizado");
+	   } else {
+		   System.out.println("Usuario não encontrado");
+	   }
+		   
+	/*	username.toString();
 		
 		if (username == null) {
 			System.out.println("Usuario nao encontrdado");
 		}
 		
 		
-		/*System.out.println("");
+		System.out.println("");
 	    System.out.println("__________________________________");
 		System.out.print("Atualizando username :");
 		user.setUsername (ler.nextLine());
@@ -105,7 +115,12 @@ public class UsuarioView {
 		*/menuUsuario(user);
 	}
 	
-	public void menuDeletar(Usuario user) {
+	public void menuDeletar() {
+		Usuario user = new Usuario();
+		// setar as informações
+				
+      UsuarioController usuarioController = new UsuarioController();
+      usuarioController.deletar(user);
 		
 		/*
         System.out.println("");
@@ -119,8 +134,29 @@ public class UsuarioView {
 		*/
 		
 		
-	    menuUsuario(user);
+	    menuUsuario();
 	}
  
+	public void menuCadastro2(){
+		Scanner ler = new Scanner(System.in);
+		Usuario usuario = new Usuario();
+		UsuarioService usuarioService = new UsuarioService();
+		
+		System.out.println("");
+	    System.out.println("______________________________");
+		System.out.println(" *** Cadastro de Usuario ***");
+		System.out.println(" ");
+		System.out.print("Informe Username :");
+		usuario.setUsername(ler.nextLine());
+		System.out.print("Iforme Password  :");
+		usuario.setPassword(ler.nextLine());
+		System.out.println("");
+		System.out.println(" *** Cadastro Realizado! ***");
+		System.out.println("______________________________");
+        System.out.println("");
+        
+        usuarioService.escrever(usuario);
+   
+	}
 	
 }
