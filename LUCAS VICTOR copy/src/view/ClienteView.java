@@ -11,6 +11,7 @@ public class ClienteView {
 	Scanner ler =new Scanner(System.in);
     Cliente cliente = new Cliente();
 		
+	
     System.out.println("");
     System.out.println("____________________________");
 	System.out.println("  *** Menu de Usuario ***");
@@ -55,9 +56,9 @@ public class ClienteView {
 			cliente.setNome(ler.next());
 			System.out.print("Iforme o cpf :");
 			cliente.setCpf(ler.next());
-			System.out.print("Informe o Gênero :");
+			System.out.print("Informe o Gï¿½nero :");
 			cliente.setGenero(ler.next());
-			System.out.print("Informe o Endereço :");
+			System.out.print("Informe o Endereï¿½o :");
 			cliente.setEndereco(ler.next());
 			System.out.println("Informe o Telefone :");
 			cliente.setTelefone(ler.next());
@@ -79,8 +80,8 @@ public class ClienteView {
 		    System.out.println("ID        : "+ cliente.getId());
 			System.out.println("Nome      : "+ cliente.getNome() );
 			System.out.println("CPF       : "+ cliente.getCpf());
-			System.out.println("Gênero    : "+ cliente.getGenero());
-			System.out.println("Edereço   : "+ cliente.getEndereco());
+			System.out.println("Gï¿½nero    : "+ cliente.getGenero());
+			System.out.println("Edereï¿½o   : "+ cliente.getEndereco());
 			System.out.println("Telefone  : "+ cliente.getTelefone());
 			System.out.println("");
 			System.out.println("__________________________________");
@@ -103,9 +104,9 @@ public class ClienteView {
 			cliente.setNome(ler.next());
 			System.out.print("Atualizando o cpf :");
 			cliente.setCpf(ler.next());
-			System.out.print("Atualizando o Gênero :");
+			System.out.print("Atualizando o Gï¿½nero :");
 			cliente.setGenero(ler.next());
-			System.out.print("Atualizando o Endereço :");
+			System.out.print("Atualizando o Endereï¿½o :");
 			cliente.setEndereco(ler.next());
 			System.out.println("Atualizando o Telefone :");
 			cliente.setTelefone(ler.next());
