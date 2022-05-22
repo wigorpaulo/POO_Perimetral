@@ -7,42 +7,40 @@ import service.UsuarioService;
 
 public class UsuarioController {
 
-	public boolean cadastrar(Usuario usuario) {
-		UsuarioService usuarioService = new UsuarioService();
+    public String cadastrar(Usuario usuario) {
 
-		if (usuarioService.ler(usuario)) {
-			System.out.println("J� possui Cadastro");
-			return true;
-		} else {
-			usuarioService.escrever(usuario);
-			System.out.println("Cadastro realizado com sucesso!");
-			return false;
-		}
-	}
+        UsuarioService usuarioService = new UsuarioService();
+      
+        // Irá verificar se ja possui registro de Usuario!
+        if (usuarioService.ler(usuario)) {
+            return "Usuario já cadastrado!";
+        } else {
+            // Escrever no arquivo
+            if (usuarioService.escrever(usuario)) {
+                return "Usuario Cadastrado com sucesso!";
+            } else {
+                return "Falha na escrita \n Tente novamente!";
+            }
 
-	public void atualizar(Usuario usuario) {
+        }
 
-	}
+    }
 
-	public void deletar(Usuario usuario) {
+    public ArrayList<Usuario> listar() {
+     UsuarioService usuarioService = new UsuarioService();
+         return  usuarioService.ler();
+    }
 
-	}
+    public boolean atualizar(Usuario usuario) {
+        UsuarioService usuarioService = new UsuarioService();
+        return usuarioService.atualizar(usuario);
+        
+    }
 
-	public Usuario listar(String listar) {
-		Usuario usuario = new Usuario();
-
-		UsuarioService usuarioService = new UsuarioService();
-		return usuarioService.ler(listar);
-
-	}
-
-	public ArrayList<Usuario> listar() {
-
-		ArrayList<Usuario> listaUsuario = new ArrayList<Usuario>();
-
-		UsuarioService usuarioService = new UsuarioService();
-
-		return usuarioService.ler();
-	}
+    public boolean excluir(Usuario usuario){
+        UsuarioService usuarioService = new UsuarioService();
+        return usuarioService.excluir(usuario);
+        
+    }
 
 }

@@ -25,23 +25,28 @@ public class FornecedorView {
 	 
 
 	    switch(x){
-	        case 1 : menuCadastro();break;
-	        case 2 : menuListar(fornecedor);break;
-	        case 3 : menuAtualizar(fornecedor);break;
-	        case 4 : menuDeletar(fornecedor);break;
+	        case 1 : menuCadastro(null);
+			  break;
+	        case 2 : menuListar(fornecedor);
+			  break;
+	        case 3 : menuAtualizar(fornecedor);
+			  break;
+	        case 4 : menuDeletar(fornecedor);
+			  break;
 	        case 5 : MenuView menu = new MenuView();
-	                 menu.menu();break;
-	        default: System.out.println("Opcao invalida !");break;
+	          menu.menu();
+			  break;
+	        default: System.out.println("Opcao invalida !");
+			  menuFornecedor(null);
+			  break;
 	    }
 
 
 	}	
 
-	public void menuCadastro() {
+	public void menuCadastro(Fornecedor fornecedor) {
 			
 	    Scanner ler = new Scanner(System.in);
-	    
-	    Fornecedor fornecedor = new Fornecedor();
 	    
 	    System.out.println("");
 	    System.out.println("______________________________");
@@ -49,13 +54,13 @@ public class FornecedorView {
 	    System.out.println(" ");
 	    System.out.print("Informe o id:");
 	    fornecedor.setId(ler.nextInt());
-	    System.out.print("Informe Razão Social:");
+	    System.out.print("Informe Razï¿½o Social:");
 	    fornecedor.setRazaoSocial(ler.next());
 	    System.out.print("Informe Fantasia  :");
 	    fornecedor.setFantasia(ler.next());
 	    System.out.println("Informe Tipo Pessoa");
-	    System.out.println("Digite 0 para Pessoa Jurídica");
-	    System.out.println("Digite 1 para Pessoa Física");
+	    System.out.println("Digite 0 para Pessoa Jurï¿½dica");
+	    System.out.println("Digite 1 para Pessoa Fï¿½sica");
 	    fornecedor.setTipoPessoa(ler.nextInt());
 	    System.out.println("Infrome o CNPJ :");
 	    fornecedor.setCnpj(ler.next());
@@ -65,21 +70,21 @@ public class FornecedorView {
 	    System.out.println("");
 
 	        
-	    menuFornecedor(fornecedor);
+	    menuFornecedor(null);
 	}
 
 	public void menuListar(Fornecedor fornecedor) {
 	    
 	    System.out.println("");
 	    System.out.println("__________________________________");
-	    System.out.println("  *** Fornecedores Cadastrados  ***");
+	    System.out.println("  *** Lista de Fornecedores  ***");
 	    System.out.println("");
-	    System.out.println("Razão Social :" + fornecedor.getRazaoSocial() );
+	    System.out.println("Razï¿½o Social :" + fornecedor.getRazaoSocial() );
 	    System.out.println("Fantasia   : "+ fornecedor.getFantasia());
 	    if (fornecedor.getTipoPessoa()==0) {
-	    System.out.println("Tipo Pessoa Jurídica");	
+	    System.out.println("Tipo Pessoa Jurï¿½dica");	
 	    }else {
-	    System.out.println("Tipo Pessoa Física");		
+	    System.out.println("Tipo Pessoa Fï¿½sica");		
 	    }
 	    System.out.println("CNPJ :"+fornecedor.getCnpj());
 	    System.out.println("");
@@ -96,7 +101,7 @@ public class FornecedorView {
 
 	System.out.println("");
 	System.out.println("__________________________________");
-	System.out.print("Atualizando Razão Social :");
+	System.out.print("Atualizando Razï¿½o Social :");
 	fornecedor.setRazaoSocial (ler.nextLine());
 	System.out.print("Atualizando Fantasia :");
 	fornecedor.setFantasia (ler.nextLine());
@@ -108,7 +113,7 @@ public class FornecedorView {
 	System.out.println("");
 	System.out.println("__________________________________");
 
-	menuFornecedor(fornecedor);
+	menuFornecedor(null);
 	}
 	public void menuDeletar(Fornecedor fornecedor) {
 	    System.out.println("");
@@ -122,6 +127,6 @@ public class FornecedorView {
 	    fornecedor.setFantasia(null);
 	    fornecedor.setTipoPessoa(0);
 	    
-	    menuFornecedor(fornecedor);
+	    menuFornecedor(null);
 	}
 }

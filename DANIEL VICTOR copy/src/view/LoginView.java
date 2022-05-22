@@ -3,8 +3,11 @@ package view;
 import java.util.Scanner;
 
 public class LoginView {
-    Scanner ler = new Scanner(System.in);
+
+Scanner ler = new Scanner(System.in);
+
     // Metodo 
+
     public void login() {
     String username ,password;
     
@@ -21,8 +24,8 @@ public class LoginView {
         System.out.println("____________________________");
         System.out.println("");
          
-        MenuView menuPrincipal = new MenuView();
-        menuPrincipal.menu();
+        MenuView menuView = new MenuView();
+        menuView.menu();
     }
 }
 

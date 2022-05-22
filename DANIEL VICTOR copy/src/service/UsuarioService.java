@@ -6,35 +6,42 @@ import model.Usuario;
 
 public class UsuarioService {
 
-	public ArrayList<Usuario> ler(){
-		Usuario usuario = new Usuario();
-		ArrayList<Usuario> listaUsuario = new ArrayList<Usuario>();
-		
-		listaUsuario.add(usuario);
-		
-		return listaUsuario;
-	}
-	
-	public void escrever (Usuario usuario) {
-		
-	}
-	
-	public boolean ler(Usuario usuario){
-		return true;
-		
-	}
-	
-	public void criar() {
-		
-	}
-	
-	public void excluir() {
-		
-	}
-	
-	public Usuario ler(String ler) {
-		Usuario usuario = new Usuario();
-		// leitura de arquivo
-		return usuario;
-	}
+    public boolean escrever(Usuario usuario) {
+        return true;
+    }
+
+    public boolean ler(Usuario usuario) {
+        return true;
+    }
+
+    public ArrayList<Usuario> ler() {
+        ArrayList usuarios = new ArrayList<>();
+        return usuarios;
+    }
+
+    public boolean atualizar(Usuario usuario) {
+        if (existiArquivo()) {
+        } else {
+           return false;
+        }
+        return true;
+    }
+
+    public boolean excluir(Usuario usuario) {
+        if (existiArquivo()) {
+             ler(usuario); 
+
+        }else{
+            return false;  
+        }
+        return true;
+    }
+
+    private boolean existiArquivo() {
+        return true;
+    }
+
+    private boolean criarArquivo() {
+        return true;
+    }
 }

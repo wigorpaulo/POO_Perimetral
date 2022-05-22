@@ -1,12 +1,13 @@
 package model;
 
 public class Fornecedor {
-// ATRIBUTOS
+
 	private int id ;
 	private  String razaoSocial;
 	private String fantasia;
 	private String cnpj;
 	private int tipoPessoa;
+
 	public int getId() {
 		return id;
 	}
