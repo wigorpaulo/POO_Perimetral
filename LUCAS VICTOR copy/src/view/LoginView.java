@@ -14,9 +14,9 @@ public class LoginView {
         System.out.println("       ***Login***        ");
         System.out.println("");
         System.out.print  ("Username:");
-        username = ler.nextLine();
+          username = ler.next();
         System.out.print  ("Password:");
-        password = ler.nextLine();
+          password = ler.nextLine();
         System.out.println("");
         System.out.println(" ***Logado com sucesso!***");
         System.out.println("____________________________");

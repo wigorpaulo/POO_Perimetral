@@ -54,6 +54,7 @@ public class MenuView {
             case 0: System.out.println("Programa finalizado!");
             break;
             default: System.out.println("Opcao invalida");
+            menu();
             break;
         }
     }

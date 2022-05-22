@@ -31,6 +31,18 @@ public class Usuario {
 	}
 	
 	
-	
+	@Override
+	public String toString(){
+		
+		System.out.println("");
+	    System.out.println("______________________________");
+		System.out.println("");
+		System.out.println(" *** Listagem de Usuario ***");
+        System.out.println("Username :" + getUsername());
+        System.out.println("Password :" + getPassword());	
+		System.out.println("");
+	    System.out.println("______________________________");
+		System.out.println("");
+	}
 	
 }
