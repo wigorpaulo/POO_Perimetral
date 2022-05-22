@@ -62,9 +62,9 @@ public class UsuarioView {
 		System.out.println(" *** Cadastro de Usuario ***");
 		System.out.println(" ");
 		System.out.print("Informe Username :");
-		usuario.setUsername(ler.nextLine());
+		  usuario.setUsername(ler.nextLine());
 		System.out.print("Iforme Password  :");
-		usuario.setPassword(ler.nextLine());
+		  usuario.setPassword(ler.nextLine());
 		System.out.println("");
 		System.out.println(" *** Cadastro Realizado! ***");
 		System.out.println("______________________________");
@@ -72,7 +72,6 @@ public class UsuarioView {
 
 		UsuarioController usuarioController = new UsuarioController();
 		usuarioController.cadastrar(usuario); 
-
 		menuUsuario();
 
 	}
