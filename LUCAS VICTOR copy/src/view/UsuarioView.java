@@ -71,7 +71,7 @@ public class UsuarioView {
 		System.out.println("");
 
 		UsuarioController usuarioController = new UsuarioController();
-		usuarioController.cadastrar(usuario); 
+		System.out.println(usuarioController.cadastrar(usuario)); 
 		menuUsuario();
 
 	}

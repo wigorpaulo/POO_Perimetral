@@ -73,16 +73,30 @@ public class UsuarioService {
 		 * Irá retornar false quando não existir o username
 		 */
 		try {
-			FileReader fr = new FileReader(dirUserDB);
-			BufferedReader bf = new BufferedReader(fr);
-			String linha = bf.readLine();
 
-			if (linha == usuario.getUsername() && linha == usuario.getPassword()) {
-				return true;
+			if (existeArquivo()) {
+
+				String linha = null;
+
+				FileReader arquivoLeitura = new FileReader(dirUserDB);
+				BufferedReader memoriaLeitura = new BufferedReader(arquivoLeitura);
+
+				while ((linha = memoriaLeitura.readLine()) != null) {
+					String[] linhaSplit = linha.split(";");
+
+					if (usuario.getUsername().equals(linhaSplit[1])) {
+						return true;
+
+					}
+				}
 			}
 
-		} catch (Exception e) {
-			System.out.println("Erro ao ler o arquivo" + e.getMessage());
+		} catch (FileNotFoundException e) {
+			System.out.println("Exceção de arquivo não encontrado ... O erro gerado é : " + e.getMessage());
+
+		} catch (IOException e) {
+			System.out.println("Não foi possivel ler o arquivo ... O erro gerado é : " + e.getMessage());
+
 		}
 
 		return false;
