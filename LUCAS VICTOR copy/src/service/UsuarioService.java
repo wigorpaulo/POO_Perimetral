@@ -19,7 +19,7 @@ public class UsuarioService {
 		return listaUsuario;
 	}
 
-	public boolean escreverArquivo(Usuario usuario) {
+	public boolean escrever(Usuario usuario) {
         /*Irá retorna true quando escrever no arquivo com sucesso !
 		  Irá retorna false quando não escrever no arquivo*/
 		  
@@ -42,7 +42,7 @@ public class UsuarioService {
 
 	}
 
-	public boolean lerArquivo(Usuario usuario) {
+	public boolean ler(Usuario usuario) {
           /*Irá retornar true quando existir o username do usuario
 		    Irá retornar false quando não existir o username */
 		try {
@@ -62,11 +62,9 @@ public class UsuarioService {
 		}
 	}
 
-	public void criar() {
 
-	}
 
-	public boolean excluirRegistroArquivo(Usuario usuario) {
+	public boolean excluir(Usuario usuario) {
 		try {
 			File fw = new File("C:\\projetos_github\\POO_Perimetral\\LUCAS VICTOR copy\\src\\data_base\\usuario.txt");
 			if (fw.exists()) {
@@ -136,7 +134,11 @@ public class UsuarioService {
 	}
 
 	private boolean existeArquivo() {
-
+        return true ;
 	}
 
+
+	private boolean  criarArquivo() {
+       return true;
+	}
 }

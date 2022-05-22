@@ -12,13 +12,13 @@ public class UsuarioController {
 		/*Ler arquivo passando o usuario*/	
 		UsuarioService usuarioService = new UsuarioService();
 		
-		boolean retorno = usuarioService.lerArquivo(usuario);
+		boolean retorno = usuarioService.ler(usuario);
 
 	  	if (retorno) {
 			return "Ja possui Cadastro";
 		}
 		else {
-			if (usuarioService.escreverArquivo(usuario)) {
+			if (usuarioService.escrever(usuario)) {
 				return " Cadastrado com sucesso!";
 			} else {
 				return "Tente novamente";
@@ -30,7 +30,8 @@ public class UsuarioController {
 	public boolean atualizar(Usuario usuario) {
 		
 		UsuarioService usuarioService = new  UsuarioService();
-		usuarioService.atualizar(usuario);
+		
+		return usuarioService.atualizar(usuario); 
 		
 /*		if () {
 			 return true;
@@ -40,7 +41,7 @@ public class UsuarioController {
 		
 	}
 	
-	public boolean excluir(Usuario usuario) {		
+	public boolean deletar(Usuario usuario) {		
 		UsuarioService usuarioService = new UsuarioService();
 		return usuarioService.excluir(usuario);		
 	}
