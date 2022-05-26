@@ -26,8 +26,11 @@ public class UsuarioController {
 
     }
 
+
+
     public ArrayList<Usuario> listar() {
-     UsuarioService usuarioService = new UsuarioService();
+       ArrayList<Usuario> listaUsuario = new ArrayList<Usuario>();
+       UsuarioService usuarioService = new UsuarioService();
          return  usuarioService.ler();
     }
 

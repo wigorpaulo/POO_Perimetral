@@ -48,7 +48,7 @@ public class MenuView {
                     break;
                case 5:
                     ClienteView cliente = new ClienteView();
-                    cliente.menuCliente(null);
+                    cliente.menuCliente();
                     break;
                case 6:
                     ProdutoView produto = new ProdutoView();

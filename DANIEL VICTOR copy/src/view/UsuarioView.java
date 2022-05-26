@@ -86,7 +86,7 @@ public class UsuarioView {
 		System.out.println(" ");
 		System.out.println(" *** Lista de Usuarios ***");
 		
-		for(int i = 0; i< listaUsuario.size();i++){
+		for(int i = 0; i< listaUsuario.size(); i++){
             System.out.println(listaUsuario.get(i).toString());
 		}
 		System.out.println("______________________________");
@@ -102,20 +102,19 @@ public class UsuarioView {
 		System.out.println("");
 		System.out.println("__________________________________");
 		System.out.print("Atualizando username :");
-		usuario.setUsername(ler.nextLine());
+		  usuario.setUsername(ler.nextLine());
 		System.out.print("Atualizando password :");
-		usuario.setPassword(ler.nextLine());
-		System.out.println("Atualizado com sucesso !!!");
+		  usuario.setPassword(ler.nextLine());
 		System.out.println("");
-		System.out.println("__________________________________");
-		UsuarioController usuarioController = new UsuarioController();
 
+        UsuarioController usuarioController = new UsuarioController();
 		if (!usuarioController.atualizar(usuario)) {
-			System.out.println("Usurio nao encontrado!");
+			System.out.println("Usurio não encontrado!");
 		} else {
-			System.out.println("Cadastro de Usuario atualizado com sucesso!");
+			System.out.println("Atualizado com sucesso !!!");
+			System.out.println("");
+			System.out.println("__________________________________");
 		}
-
 		menuUsuario();
 	}
 
@@ -124,17 +123,19 @@ public class UsuarioView {
 		Scanner ler = new Scanner(System.in);
 		Usuario usuario = new Usuario();
 
-		System.out.println("");
-		System.out.println("__________________________________");
-		System.out.print("Informe o username :");
-		usuario.setUsername(ler.nextLine());
-        UsuarioController usuarioController = new UsuarioController();
+		    System.out.println("");
+		    System.out.println("______________________________");
+		    System.out.print("Informe o username :");
+		    usuario.setUsername(ler.nextLine());
+            UsuarioController usuarioController = new UsuarioController();
 		if (!usuarioController.excluir(usuario)) {
 			System.out.println("Usuario não encontrado");
+			System.out.println("Tente novamente");
+			System.out.println("______________________________");
 		} else {
 			System.out.println("Cadastro do usuario excluído com sucesso!");
 			System.out.println("");
-			System.out.println("__________________________________");
+			System.out.println("______________________________");
 		}
 		
 		menuUsuario();

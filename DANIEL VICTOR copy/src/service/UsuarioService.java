@@ -108,7 +108,6 @@ public class UsuarioService {
                    usuario.setId(Integer.parseInt(linhaSprint[0]));
                    usuario.setUsername(linhaSprint[1]);
                    usuario.setPassword(linhaSprint[2]);
-                   
                    listaUsuarios.add(usuario);
                 }    
 
@@ -128,7 +127,7 @@ public class UsuarioService {
         File fw = new File(dirUserDb);
 		boolean atualizarUser = false;
 		try {
-		    if (fw.exists()) {
+		    if (existiArquivo()) {
                
 				FileReader fr = new FileReader(dirUserDb);
 				BufferedReader bf = new BufferedReader(fr);
@@ -175,7 +174,7 @@ public class UsuarioService {
     // -------------------------------------------------------------------
 
     public boolean excluir(Usuario usuario) {
-        Boolean excluirUsuario = false;
+        boolean excluirUsuario = false;
         try{
             File fw = new File(dirUserDb);
             if (existiArquivo()) {
