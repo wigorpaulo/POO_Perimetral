@@ -11,9 +11,9 @@ public class UsuarioController {
     public String cadastrar(Usuario usuario) {
         /* Ler arquivo passando o usuario */
         UsuarioService usuarioService = new UsuarioService();
-        boolean retorno = usuarioService.ler(usuario);
+       
 
-        if (retorno) {
+        if (usuarioService.ler(usuario)) {
             return "Ja possui Cadastro";
         } else {
             if (usuarioService.escrever(usuario)) {
@@ -27,9 +27,7 @@ public class UsuarioController {
     }
 
     public boolean atualizar(Usuario usuario) {
-
         UsuarioService usuarioService = new UsuarioService();
-
         return usuarioService.atualizar(usuario);
 
     }
@@ -39,15 +37,8 @@ public class UsuarioController {
         return usuarioService.excluir(usuario);
     }
 
-    public Usuario listar(String listar) {
-        UsuarioService usuarioService = new UsuarioService();
-        return usuarioService.ler(listar);
-    }
-
     public ArrayList<Usuario> listar() {
-        ArrayList<Usuario> listaUsuario = new ArrayList<Usuario>();
         UsuarioService usuarioService = new UsuarioService();
-
         return usuarioService.ler();
     }
 

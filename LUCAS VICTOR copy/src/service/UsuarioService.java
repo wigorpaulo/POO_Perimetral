@@ -8,6 +8,24 @@ import view.UsuarioView;
 public class UsuarioService {
 
 	private final String dirUserDB = "C:\\LucasVictor\\ProjetosGitHub\\POO_Perimetral\\LUCAS VICTOR copy\\src\\data_base\\user.txt";
+     private FileReader arquivoLeitura;
+     private BufferedReader memoriaLeitura;
+     private File arquivo;
+	 private FileWriter escreverArquivo;
+	 private BufferedWriter memoriaEscrita;
+
+	 public UsuarioService(){
+	 	try {
+	 		  arquivoLeitura = new FileReader(dirUserDB);
+	 		  memoriaLeitura = new BufferedReader(arquivoLeitura);
+			  arquivo = new File(dirUserDB);
+
+	 	} catch (Throwable e) {
+ 	      System.out.println("Exceção de arquivo não encontrado ... O erro gerado é : " + e.getMessage());
+
+		}
+		
+   }
 
 	Scanner entrada = new Scanner(System.in);
 
@@ -18,11 +36,11 @@ public class UsuarioService {
 
 			if (existeArquivo()) {
 
+				
+
+			//	 FileReader arquivoLeitura = new FileReader(dirUserDB);
+			//	 BufferedReader memoriaLeitura = new BufferedReader(arquivoLeitura);
 				String linha = null;
-
-				FileReader arquivoLeitura = new FileReader(dirUserDB);
-				BufferedReader memoriaLeitura = new BufferedReader(arquivoLeitura);
-
 				while ((linha = memoriaLeitura.readLine()) != null) {
 					String[] linhaSplit = linha.split(";");
 
@@ -47,21 +65,16 @@ public class UsuarioService {
 	}
 
 	public boolean escrever(Usuario usuario) {
-		/*
-		 * Irá retorna true quando escrever no arquivo com sucesso !
-		 * Irá retorna false quando não escrever no arquivo
-		 */
-
 		try {
-			UsuarioView usuarioView = new UsuarioView();
 
 			if (existeArquivo()) {
 
-				FileReader arquivoLeitura = new FileReader(dirUserDB);
-				BufferedReader memoriaLeitura = new BufferedReader(arquivoLeitura);
+			//	 FileReader arquivoLeitura = new FileReader(dirUserDB);
+			//	 BufferedReader memoriaLeitura = new BufferedReader(arquivoLeitura);
 
-				String linha = null;
+				
 				int contadorLinha = 0;
+                String linha = null;
 
 				while ((linha = memoriaLeitura.readLine()) != null) {
 
@@ -69,12 +82,15 @@ public class UsuarioService {
 				}
 				contadorLinha = contadorLinha + 1;
 
-				String dadosUsuario = contadorLinha + ";" + usuario.getUsername() + ";" + usuario.getPassword() + "\n";
+				String dadosUsuario = contadorLinha + ";" + usuario.getUsername() + ";" + usuario.getPassword();
 
-				FileWriter escreverArquivo = new FileWriter(dirUserDB, true);
+			//	File arquivo = new File (dirUserDB);
+			    escreverArquivo = new FileWriter(arquivo, true);
+                memoriaEscrita = new BufferedWriter(escreverArquivo);
 
-				escreverArquivo.write(dadosUsuario);
-				escreverArquivo.close();
+				memoriaEscrita.write(dadosUsuario);
+				memoriaEscrita.newLine();
+				memoriaEscrita.close();
 				return true;
 			} else {
 
@@ -82,8 +98,6 @@ public class UsuarioService {
 				escrever(usuario);
 
 			}
-
-			return true;
 		} catch (FileNotFoundException e) {
 			System.out.println("Exceção de arquivo não encontrado ... O erro gerado é : " + e.getMessage());
 
@@ -95,19 +109,13 @@ public class UsuarioService {
 	}
 
 	public boolean ler(Usuario usuario) {
-		/*
-		 * Irá retornar true quando existir o username do usuario
-		 * Irá retornar false quando não existir o username
-		 */
 		try {
-
 			if (existeArquivo()) {
 
+			//	 FileReader arquivoLeitura = new FileReader(dirUserDB);
+			//	 BufferedReader memoriaLeitura = new BufferedReader(arquivoLeitura);
+
 				String linha = null;
-
-				FileReader arquivoLeitura = new FileReader(dirUserDB);
-				BufferedReader memoriaLeitura = new BufferedReader(arquivoLeitura);
-
 				while ((linha = memoriaLeitura.readLine()) != null) {
 					String[] linhaSplit = linha.split(";");
 
@@ -132,17 +140,16 @@ public class UsuarioService {
 	public boolean excluir(Usuario usuario) {
         boolean excluirUsuario = false;
 		try {
-			File fw = new File(dirUserDB);
-			if (fw.exists()) {
+			if (existeArquivo()) {
 
-				FileReader fr = new FileReader(dirUserDB);
-				BufferedReader bf = new BufferedReader(fr);
+				//  FileReader arquivoLeitura = new FileReader(dirUserDB);
+				//  BufferedReader memoriaLeitura = new BufferedReader(arquivoLeitura);
 
                 ArrayList <String> listaUsuarioGravar = new ArrayList<>();
 
 				String linha = null;
 
-				while ((linha = bf.readLine()) != null) {
+				while ((linha = memoriaLeitura.readLine()) != null) {
 					String[] linhaSplit = linha.split(";");
 					if (!usuario.getUsername().equals(linhaSplit[1])){
                        listaUsuarioGravar.add(linha);
@@ -151,12 +158,12 @@ public class UsuarioService {
 					}
                      
 				}
-					fr.close();
-					bf.close();
+				    arquivoLeitura.close();
+					memoriaLeitura.close();
                     
-					File arquivo = new File(dirUserDB);
-					FileWriter escreverArquivo = new FileWriter(dirUserDB, false);
-                    BufferedWriter memoriaEscrita = new BufferedWriter(escreverArquivo);
+				//	File arquivo = new File(dirUserDB);
+				    escreverArquivo = new FileWriter(arquivo, false);
+                    memoriaEscrita = new BufferedWriter(escreverArquivo);
                     
 					for (String novaLinha : listaUsuarioGravar){
 
@@ -186,24 +193,18 @@ public class UsuarioService {
 		return excluirUsuario;
 	}
 
-	public Usuario ler(String ler) {
-		Usuario usuario = new Usuario();
-		return usuario;
-	}
-
 	public boolean atualizar(Usuario usuario) {
-		File fw = new File(dirUserDB);
 		boolean atualizarUser = false;
 		try {
-		    if (fw.exists()) {
+		    if (existeArquivo()) {
                
-				FileReader fr = new FileReader(dirUserDB);
-				BufferedReader bf = new BufferedReader(fr);
+			//	 FileReader arquivoLeitura = new FileReader(dirUserDB);
+			//	 BufferedReader memoriaLeitura = new BufferedReader(arquivoLeitura);
                 
 				ArrayList <String> listaUsuarioGravar = new ArrayList<>();
 				String linha = null;
 
-				while ((linha = bf.readLine()) != null) {
+				while ((linha = memoriaLeitura.readLine()) != null) {
 					String[] linhaSplit = linha.split(";");
 					if (usuario.getUsername().equals(linhaSplit[1])){
 						String novaLinha = linhaSplit[0] + ";" + linhaSplit[1] + ";" + usuario.getPassword();
@@ -214,12 +215,12 @@ public class UsuarioService {
 					}
 
 				}
-					fr.close();
-					bf.close();
+				    arquivoLeitura.close();
+					memoriaLeitura.close();
 
-					File arquivo = new File(dirUserDB);
-					FileWriter escreverArquivo = new FileWriter(dirUserDB, false);
-                    BufferedWriter memoriaEscrita = new BufferedWriter(escreverArquivo);
+				//	File arquivo = new File(dirUserDB);
+				    escreverArquivo = new FileWriter(dirUserDB, false);
+                    memoriaEscrita = new BufferedWriter(escreverArquivo);
                     
 					for (String novaLinha : listaUsuarioGravar){
 
@@ -239,7 +240,7 @@ public class UsuarioService {
     return atualizarUser;
 }
 	private boolean existeArquivo() {
-		File arquivo = new File(dirUserDB);
+	//	File arquivo = new File(dirUserDB);
 
 		return arquivo.exists();
 
@@ -248,8 +249,7 @@ public class UsuarioService {
 	private boolean criarArquivo() {
 
 		try {
-			File arquivo = new File(dirUserDB);
-
+		//	File arquivo = new File(dirUserDB);
 			return arquivo.createNewFile();
 
 		} catch (IOException erro) {
