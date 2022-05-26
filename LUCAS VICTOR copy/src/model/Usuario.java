@@ -37,7 +37,7 @@ public class Usuario {
 	@Override
 	public String toString() {
 
-		return "Username :" + getUsername() + "\n" + "Password :" + getPassword();
+		return "ID :" + Integer.toString(getId()) + "  Username :" + getUsername()  + "  Password :" + getPassword();
 
 	}
 

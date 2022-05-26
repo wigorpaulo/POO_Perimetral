@@ -32,14 +32,6 @@ public class UsuarioController {
 
         return usuarioService.atualizar(usuario);
 
-        /*
-         * if () {
-         * return true;
-         * }else (){
-         * return false;
-         * }
-         */
-
     }
 
     public boolean deletar(Usuario usuario) {

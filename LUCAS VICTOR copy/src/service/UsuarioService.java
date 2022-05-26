@@ -12,12 +12,38 @@ public class UsuarioService {
 	Scanner entrada = new Scanner(System.in);
 
 	public ArrayList<Usuario> ler() {
-		Usuario usuario = new Usuario();
 		ArrayList<Usuario> listaUsuario = new ArrayList<Usuario>();
 
-		listaUsuario.add(usuario);
+		try {
 
+			if (existeArquivo()) {
+
+				String linha = null;
+
+				FileReader arquivoLeitura = new FileReader(dirUserDB);
+				BufferedReader memoriaLeitura = new BufferedReader(arquivoLeitura);
+
+				while ((linha = memoriaLeitura.readLine()) != null) {
+					String[] linhaSplit = linha.split(";");
+
+					Usuario usuario = new Usuario();
+					usuario.setId(Integer.parseInt(linhaSplit[0]));
+					usuario.setUsername(linhaSplit[1]);
+					usuario.setPassword(linhaSplit[2]);
+					listaUsuario.add(usuario);
+				}
+
+			}
+
+		} catch (FileNotFoundException e) {
+			System.out.println("Exceção de arquivo não encontrado ... O erro gerado é : " + e.getMessage());
+
+		} catch (IOException e) {
+			System.out.println("Não foi possivel ler o arquivo ... O erro gerado é : " + e.getMessage());
+
+		}
 		return listaUsuario;
+
 	}
 
 	public boolean escrever(Usuario usuario) {
@@ -43,9 +69,10 @@ public class UsuarioService {
 				}
 				contadorLinha = contadorLinha + 1;
 
-				String dadosUsuario = contadorLinha + ";" + usuario.getUsername() + ";" + usuario.getPassword();
+				String dadosUsuario = contadorLinha + ";" + usuario.getUsername() + ";" + usuario.getPassword() + "\n";
 
 				FileWriter escreverArquivo = new FileWriter(dirUserDB, true);
+
 				escreverArquivo.write(dadosUsuario);
 				escreverArquivo.close();
 				return true;
@@ -103,45 +130,60 @@ public class UsuarioService {
 	}
 
 	public boolean excluir(Usuario usuario) {
+        boolean excluirUsuario = false;
 		try {
-			File fw = new File("C:\\projetos_github\\POO_Perimetral\\LUCAS VICTOR copy\\src\\data_base\\usuario.txt");
+			File fw = new File(dirUserDB);
 			if (fw.exists()) {
 
-				FileReader fr = new FileReader(
-						"C:\\projetos_github\\POO_Perimetral\\LUCAS VICTOR copy\\src\\data_base\\usuario.txt");
+				FileReader fr = new FileReader(dirUserDB);
 				BufferedReader bf = new BufferedReader(fr);
-				String s = bf.readLine();
 
-				String linha;
+                ArrayList <String> listaUsuarioGravar = new ArrayList<>();
+
+				String linha = null;
+
 				while ((linha = bf.readLine()) != null) {
-					for (int i = 0; i < linha.split(";").length; i++) {
-						if (i == 1) {
-							if (linha[i] == usuario.getPassword()) {
-
-							}
-						}
+					String[] linhaSplit = linha.split(";");
+					if (!usuario.getUsername().equals(linhaSplit[1])){
+                       listaUsuarioGravar.add(linha);
+					}else {
+					   	excluirUsuario = true;
 					}
+                     
 				}
+					fr.close();
+					bf.close();
+                    
+					File arquivo = new File(dirUserDB);
+					FileWriter escreverArquivo = new FileWriter(dirUserDB, false);
+                    BufferedWriter memoriaEscrita = new BufferedWriter(escreverArquivo);
+                    
+					for (String novaLinha : listaUsuarioGravar){
 
-				if (usuario.getUsername() == s) {
-					fw.delete();
-					return true;
-				} else {
-					return false;
+                        memoriaEscrita.write(novaLinha);
+				        memoriaEscrita.newLine();
+					}
+                    memoriaEscrita.close();
+
+				}else {
+					 return false;
 				}
+				 
+		}catch(
 
-			} else {
-				return false;
-			}
-
-		} catch (FileNotFoundException e) {
-			System.out.println("Erro FileNotFoundException: " + e.getMessage());
-		} catch (IndexOutOfBoundsException e) {
-			System.out.println("Erro IndexOutOfBoundsException: " + e.getMessage());
-		} catch (Exception e) {
+	FileNotFoundException e)
+	{
+		System.out.println("Erro FileNotFoundException: " + e.getMessage());
+	}catch(
+	IndexOutOfBoundsException e)
+	{
+		System.out.println("Erro IndexOutOfBoundsException: " + e.getMessage());
+	}catch(
+	Exception e)
+	{
 			System.out.println("Erro Exception: " + e.getMessage());
 		}
-		return false;
+		return excluirUsuario;
 	}
 
 	public Usuario ler(String ler) {
@@ -150,27 +192,52 @@ public class UsuarioService {
 	}
 
 	public boolean atualizar(Usuario usuario) {
-		File fw = new File("C:\\projetos_github\\POO_Perimetral\\LUCAS VICTOR copy\\src\\data_base\\usuario.txt");
-		if (fw.exists()) {
-
-			try {
-				FileReader fr = new FileReader(
-						"C:\\projetos_github\\POO_Perimetral\\LUCAS VICTOR copy\\src\\data_base\\usuario.txt");
+		File fw = new File(dirUserDB);
+		boolean atualizarUser = false;
+		try {
+		    if (fw.exists()) {
+               
+				FileReader fr = new FileReader(dirUserDB);
 				BufferedReader bf = new BufferedReader(fr);
-				String s = bf.readLine();
-			} catch (Exception e) {
-				System.out.println("Erro" + e.getMessage());
-				return false;
+                
+				ArrayList <String> listaUsuarioGravar = new ArrayList<>();
+				String linha = null;
 
-			}
+				while ((linha = bf.readLine()) != null) {
+					String[] linhaSplit = linha.split(";");
+					if (usuario.getUsername().equals(linhaSplit[1])){
+						String novaLinha = linhaSplit[0] + ";" + linhaSplit[1] + ";" + usuario.getPassword();
+						listaUsuarioGravar.add(novaLinha);
+						atualizarUser = true;
+					}else {
+                        listaUsuarioGravar.add(linha);
+					}
 
-			return true;
-		} else {
-			return false;
-		}
+				}
+					fr.close();
+					bf.close();
+
+					File arquivo = new File(dirUserDB);
+					FileWriter escreverArquivo = new FileWriter(dirUserDB, false);
+                    BufferedWriter memoriaEscrita = new BufferedWriter(escreverArquivo);
+                    
+					for (String novaLinha : listaUsuarioGravar){
+
+                        memoriaEscrita.write(novaLinha);
+				        memoriaEscrita.newLine();
+					}
+                    memoriaEscrita.close();
+
+		    }else {
+			    return false;
+		    }
+
+	}catch (Exception e) {
+		System.out.println("Erro" + e.getMessage());
 
 	}
-
+    return atualizarUser;
+}
 	private boolean existeArquivo() {
 		File arquivo = new File(dirUserDB);
 

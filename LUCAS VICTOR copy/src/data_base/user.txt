@@ -1,3 +1,6 @@
-1;Karlla;7892
-2;Lucas;7683;
-3;Victor Corno;4.6
+1;Daniel Piruleta;456
+2;Lucas Gostoso;88888888888888
+3;Karlla Gostosa;132
+4;Camilla;Empreendedora
+5;Ana Paula;456
+6;Romeu;Lucas
