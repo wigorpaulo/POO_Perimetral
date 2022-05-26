@@ -2,15 +2,12 @@ package view;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import controller.UsuarioController;
 import model.Usuario;
-import service.UsuarioService;
 
-public class UsuarioView {
+public class UsuarioView extends ApplicationView implements IApplicationView{
 
 	public void menuUsuario() {
-		Scanner ler = new Scanner(System.in);
+		// Scanner ler = new Scanner(System.in);
 
 		System.out.println("");
 		System.out.println("____________________________");
@@ -55,7 +52,7 @@ public class UsuarioView {
 
 	public void menuCadastro() {
 
-		Scanner ler = new Scanner(System.in);
+		// Scanner ler = new Scanner(System.in);
 		Usuario usuario = new Usuario();
 
 		System.out.println("");
@@ -64,13 +61,13 @@ public class UsuarioView {
 		System.out.println(" ");
 		System.out.print("Informe Username :");
 		  usuario.setUsername(ler.nextLine());
-		System.out.print("Iforme Password  :");
+		System.out.print("Informe Password  :");
 		  usuario.setPassword(ler.nextLine());
 		System.out.println("");
 		System.out.println("______________________________");
 		System.out.println("");
 
-		UsuarioController usuarioController = new UsuarioController();
+	//	UsuarioController usuarioController = new UsuarioController();
 		System.out.println(usuarioController.cadastrar(usuario)); 
 		menuUsuario();
 
@@ -78,7 +75,7 @@ public class UsuarioView {
 
 	public void menuListar() {
 	
-		UsuarioController usuarioController = new UsuarioController();
+  //		UsuarioController usuarioController = new UsuarioController();
 		ArrayList<Usuario> listaUsuario = usuarioController.listar();
 
 		/* se o retorno do metodo listar() for vazio */
@@ -107,7 +104,7 @@ public class UsuarioView {
 	}
 
 	public void menuAtualizar() {
-		Scanner ler = new Scanner(System.in);
+		// Scanner ler = new Scanner(System.in);
 		Usuario usuario = new Usuario();
 
 		String username;
@@ -121,7 +118,7 @@ public class UsuarioView {
 		usuario.setPassword(ler.nextLine());
 		System.out.println("");
 
-		UsuarioController usuarioController = new UsuarioController();
+	//	UsuarioController usuarioController = new UsuarioController();
 		if (!usuarioController.atualizar(usuario)) {
 			System.out.println("Usuario não encontrado");
 		} else {
@@ -130,30 +127,11 @@ public class UsuarioView {
 			System.out.println("");
 
 		}
-
-		/*
-		 * username.toString();
-		 * 
-		 * if (username == null) {
-		 * System.out.println("Usuario nao encontrdado");
-		 * }
-		 * 
-		 * 
-		 * System.out.println("");
-		 * System.out.println("__________________________________");
-		 * System.out.print("Atualizando username :");
-		 * user.setUsername (ler.nextLine());
-		 * System.out.print("Atualizando password :");
-		 * user.setPassword (ler.nextLine());
-		 * System.out.println("Atualizado com sucesso !!!");
-		 * System.out.println("");
-		 * System.out.println("__________________________________");
-		 * 
-		 */menuUsuario();
+		 menuUsuario();
 	}
 
 	public void menuDeletar() {
-		Scanner ler = new Scanner(System.in);
+		// Scanner ler = new Scanner(System.in);
 		Usuario usuario = new Usuario();
 		// setar as informa��es
 
@@ -163,7 +141,7 @@ public class UsuarioView {
 		System.out.print("Informe o  username :");
 		usuario.setUsername(ler.nextLine());
 
-		UsuarioController usuarioController = new UsuarioController();
+	//	UsuarioController usuarioController = new UsuarioController();
 		if (!usuarioController.deletar(usuario)) {
 			System.out.println("");
 			System.out.println("Usuario nao encontrado ");
