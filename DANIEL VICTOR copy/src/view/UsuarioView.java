@@ -1,5 +1,6 @@
 package view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import controller.UsuarioController;
 import model.Usuario;
@@ -65,26 +66,32 @@ public class UsuarioView {
 		System.out.print("Iforme Password  :");
 		  usuario.setPassword(ler.nextLine());
 		System.out.println("");
-		System.out.println(" *** Cadastro Realizado! ***");
 		System.out.println("______________________________");
 		System.out.println("");
 
-		usuarioController.cadastrar(usuario);
-		menuUsuario();
+		System.out.println(usuarioController.cadastrar(usuario));
+		menuUsuario(); 
 
 	}
 
 	public void menuListar() {
 		UsuarioController usuarioController = new UsuarioController();
-		usuarioController.listar();
+		ArrayList <Usuario> listaUsuario =  usuarioController.listar();
+       
+		if (listaUsuario.isEmpty()){
+			System.out.println("Não possui cadastro!");
+		}else{
 		System.out.println(" ");
 		System.out.println("______________________________");
+		System.out.println(" ");
 		System.out.println(" *** Lista de Usuarios ***");
-		System.out.println(" ");
-		System.out.println(" ");
-		System.out.println(" *** Listagem Realizada! ***");
+		
+		for(int i = 0; i< listaUsuario.size();i++){
+            System.out.println(listaUsuario.get(i).toString());
+		}
 		System.out.println("______________________________");
 		System.out.println(" ");
+		}
 		menuUsuario();
 	}
 
@@ -121,20 +128,15 @@ public class UsuarioView {
 		System.out.println("__________________________________");
 		System.out.print("Informe o username :");
 		usuario.setUsername(ler.nextLine());
-		System.out.print("Informe o password :");
-		usuario.setPassword(ler.nextLine());
-		System.out.println("Deletado com sucesso !!!");
-		System.out.println("");
-		System.out.println("__________________________________");
-
-		UsuarioController usuarioController = new UsuarioController();
-
+        UsuarioController usuarioController = new UsuarioController();
 		if (!usuarioController.excluir(usuario)) {
 			System.out.println("Usuario não encontrado");
 		} else {
 			System.out.println("Cadastro do usuario excluído com sucesso!");
+			System.out.println("");
+			System.out.println("__________________________________");
 		}
-
+		
 		menuUsuario();
 	}
 
