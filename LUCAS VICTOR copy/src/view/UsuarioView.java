@@ -116,9 +116,9 @@ public class UsuarioView {
 		System.out.println("_______________Atualizando________________");
 		System.out.println("");
 		System.out.print("Atualizando username :");
-		usuario.setUsername(ler.nextLine());
+		  usuario.setUsername(ler.nextLine());
 		System.out.print("Atualizando password :");
-		usuario.setPassword(ler.nextLine());
+		  usuario.setPassword(ler.nextLine());
 		System.out.println("");
 
 		UsuarioController usuarioController = new UsuarioController();
@@ -161,8 +161,7 @@ public class UsuarioView {
 		System.out.println("_______________Deletar_______________");
 		System.out.println("");
 		System.out.print("Informe o  username :");
-		usuario.setUsername(ler.nextLine());
-
+		  usuario.setUsername(ler.nextLine());
 		UsuarioController usuarioController = new UsuarioController();
 		if (!usuarioController.deletar(usuario)) {
 			System.out.println("");

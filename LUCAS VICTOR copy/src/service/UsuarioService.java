@@ -133,7 +133,7 @@ public class UsuarioService {
         boolean excluirUsuario = false;
 		try {
 			File fw = new File(dirUserDB);
-			if (fw.exists()) {
+			if (existeArquivo()) {
 
 				FileReader fr = new FileReader(dirUserDB);
 				BufferedReader bf = new BufferedReader(fr);

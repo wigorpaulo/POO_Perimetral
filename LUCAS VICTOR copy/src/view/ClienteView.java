@@ -1,7 +1,9 @@
 package view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import controller.ClienteController;
 import model.Cliente;
 import model.Usuario;
 
@@ -33,8 +35,7 @@ public class ClienteView {
 		case 2 : listarCliente();break;
 		case 3 : atualizarCliente();break;
 		case 4 : deletarCliente();break;
-		case 5 : MenuView menu = new MenuView();
-		         menu.menu();break;
+		case 5 : MenuView menu = new MenuView(); menu.menu();break;
 		default: System.out.println("Opcao invalida !");break;
 	}
 	}
@@ -45,97 +46,99 @@ public class ClienteView {
 			Scanner ler = new Scanner(System.in);
 			
 			Cliente cliente = new Cliente();
+			ClienteController clienteController = new ClienteController();
 			
 			System.out.println("");
 		    System.out.println("______________________________");
 			System.out.println(" *** Cadastro de Usuario ***");
 			System.out.println(" ");
-			System.out.print("Informe o ID :");
-			cliente.setId(ler.nextInt());
 			System.out.print("Informe o nome :");
-			cliente.setNome(ler.next());
+			  cliente.setNome(ler.next());
 			System.out.print("Iforme o cpf :");
-			cliente.setCpf(ler.next());
-			System.out.print("Informe o G�nero :");
-			cliente.setGenero(ler.next());
-			System.out.print("Informe o Endere�o :");
-			cliente.setEndereco(ler.next());
+			  cliente.setCpf(ler.next());
 			System.out.println("Informe o Telefone :");
-			cliente.setTelefone(ler.next());
+			  cliente.setTelefone(ler.next());
 			System.out.println("");
-			System.out.println(" *** Cadastro Realizado! ***");
 			System.out.println("______________________________");
 	        System.out.println("");
-
+           
+		   System.out.println(clienteController.cadastrar(cliente));
 				
 			menuCliente();
 		}
 	   
 	   public void listarCliente() {
-			Cliente cliente = new Cliente();
+
+		ClienteController clienteController = new ClienteController();
+        ArrayList<Cliente> listaCliente = clienteController.listar();
+		
+		if (listaCliente.isEmpty()){
+		   System.out.print("Não posui cadastro");
+		}else {
 			System.out.println("");
 		    System.out.println("__________________________________");
-		    System.out.println("  *** Usuarios Cadastrados  ***");
+		    System.out.println("  *** Lista de  Clientes ***");
 		    System.out.println("");
-		    System.out.println("ID        : "+ cliente.getId());
-			System.out.println("Nome      : "+ cliente.getNome() );
-			System.out.println("CPF       : "+ cliente.getCpf());
-			System.out.println("G�nero    : "+ cliente.getGenero());
-			System.out.println("Edere�o   : "+ cliente.getEndereco());
-			System.out.println("Telefone  : "+ cliente.getTelefone());
+		  
+            for (int i = 0 ; i < listaCliente.size() ; i ++){
+				System.out.println(listaCliente.get(i).toString());
+			}
+
 			System.out.println("");
 			System.out.println("__________________________________");
 			System.out.println("");
 			
 			menuCliente();
 	   }
-	   
+	} 
+
+
 	   public void atualizarCliente() {
-		   Scanner ler = new Scanner(System.in);
-			
+		    Scanner ler = new Scanner(System.in);
 			Cliente cliente = new Cliente();
 			
 			System.out.println("");
 		    System.out.println("______________________________");
 			System.out.println(" ");
-			System.out.print("Atualizando o ID :");
-			cliente.setId(ler.nextInt());
-			System.out.print("Atualizando o nome :");
-			cliente.setNome(ler.next());
-			System.out.print("Atualizando o cpf :");
-			cliente.setCpf(ler.next());
-			System.out.print("Atualizando o G�nero :");
-			cliente.setGenero(ler.next());
-			System.out.print("Atualizando o Endere�o :");
-			cliente.setEndereco(ler.next());
-			System.out.println("Atualizando o Telefone :");
-			cliente.setTelefone(ler.next());
+			System.out.print("Informe o nome :");
+			  cliente.setNome(ler.next());
+			System.out.print("Informe o novo Telefone :");
+			  cliente.setTelefone(ler.next());
 			System.out.println("");
-			System.out.println(" *** Atualizado com sucesso! ***");
+			
+			ClienteController clienteController = new ClienteController();
+			if (!clienteController.atualizar(cliente)){
+				System.out.println("Cliente não encontrado");
+			}else {
+			    System.out.println(" *** Atualizado com sucesso! ***");
 			System.out.println("______________________________");
 	        System.out.println("");
-
-				
+	
+			}			
 			menuCliente();
-		   
 	   }
+
+
 	   
 	   public void deletarCliente() {
-			Cliente cliente = new Cliente(); 
+		   Scanner ler = new Scanner(System.in);
+		   Cliente cliente = new Cliente();
 			
 		    System.out.println("");
 		    System.out.println("__________________________________");
 		    System.out.println("");
-			System.out.println("Cadastro deletado com sucesso !!! ");
-			System.out.println("");
-		    System.out.println("__________________________________");
-		    cliente.setNome(null);
-		    cliente.setEndereco(null);
-		    cliente.setGenero(null);
-		    cliente.setTelefone(null);
-		    cliente.setCpf(null);
-		    cliente.setId(0);
-		    
+			System.out.println("Informe o Nome :");
+			  cliente.setNome(ler.nextLine());
+            ClienteController clienteController = new ClienteController();
+			if(!clienteController.deletar(cliente)){
+				  System.out.println("Cliente não encontrado \n Tente novamente...");
+				  System.out.println("");
+				  System.out.println("________________________________");
+			}else {
+				System.out.println("Cadastro deletado com sucesso !!! ");
+				System.out.println("");
+				System.out.println("__________________________________");
+		    }
 			menuCliente();
 	   }
 }

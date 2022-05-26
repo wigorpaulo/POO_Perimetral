@@ -44,5 +44,12 @@ public String getTelefone() {
 public void setTelefone(String telefone) {
 	this.telefone = telefone;
 }
+@Override
+public String toString() {
+	return " ID: " + id + "  Nome: " + nome + "  CPF: " + cpf + "  Telefone: " + telefone;
+}
+
  
+
+
 }

@@ -10,10 +10,9 @@ public class UsuarioController {
 
     public String cadastrar(Usuario usuario) {
         /* Ler arquivo passando o usuario */
-        UsuarioService usuarioService = new UsuarioService();
-        boolean retorno = usuarioService.ler(usuario);
+        UsuarioService usuarioService = new UsuarioService();     
 
-        if (retorno) {
+        if (usuarioService.ler(usuario);) {
             return "Ja possui Cadastro";
         } else {
             if (usuarioService.escrever(usuario)) {
