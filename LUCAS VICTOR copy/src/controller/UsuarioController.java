@@ -12,7 +12,7 @@ public class UsuarioController {
         /* Ler arquivo passando o usuario */
         UsuarioService usuarioService = new UsuarioService();     
 
-        if (usuarioService.ler(usuario);) {
+        if (usuarioService.ler(usuario)) {
             return "Ja possui Cadastro";
         } else {
             if (usuarioService.escrever(usuario)) {

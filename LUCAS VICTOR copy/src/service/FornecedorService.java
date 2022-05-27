@@ -4,18 +4,19 @@ import java.util.*;
 import java.io.*;
 import java.sql.ClientInfoStatus;
 
-import model.Cliente;
-import view.ClienteView;
-
-
-public class ClienteService {
+import model.Fornecedor;
+import view.FornecedorView;
     
-        private final String dirUserDB = "C:\\LucasVictor\\ProjetosGitHub\\POO_Perimetral\\LUCAS VICTOR copy\\src\\data_base\\cliente.txt";
+
+public class FornecedorService {
+
+
+        private final String dirUserDB = "C:\\LucasVictor\\ProjetosGitHub\\POO_Perimetral\\LUCAS VICTOR copy\\src\\data_base\\fornecedor.txt";
     
         Scanner entrada = new Scanner(System.in);
     
-        public ArrayList<Cliente> ler() {
-            ArrayList<Cliente> listaCliente = new ArrayList<Cliente>();
+        public ArrayList<Fornecedor> ler() {
+            ArrayList<Fornecedor> listaFornecedor = new ArrayList<Fornecedor>();
     
             try {
     
@@ -29,12 +30,13 @@ public class ClienteService {
                     while ((linha = memoriaLeitura.readLine()) != null) {
                         String[] linhaSplit = linha.split(";");
     
-                        Cliente cliente = new Cliente();
-                        cliente.setId(Integer.parseInt(linhaSplit[0]));
-                        cliente.setNome(linhaSplit[1]);
-                        cliente.setCpf(linhaSplit[2]);
-                        cliente.setTelefone(linhaSplit[3]);
-                        listaCliente.add(cliente);
+                        Fornecedor fornecedor = new Fornecedor();
+                        fornecedor.setId(Integer.parseInt(linhaSplit[0]));
+                        fornecedor.setRazaoSocial(linhaSplit[1]);
+                        fornecedor.setFantasia(linhaSplit[2]);
+                        fornecedor.setCnpj(linhaSplit[3]);
+                        fornecedor.setTipoPessoa(linhaSplit[4]);
+                        listaFornecedor.add(fornecedor);
                     }
     
                 }
@@ -46,11 +48,11 @@ public class ClienteService {
                 System.out.println("Não foi possivel ler o arquivo ... O erro gerado é : " + e.getMessage());
     
             }
-            return listaCliente;
+            return listaFornecedor;
     
         }
     
-        public boolean escrever(Cliente cliente) {
+        public boolean escrever(Fornecedor fornecedor) {
             try {
                 if (existeArquivo()) {
     
@@ -66,7 +68,7 @@ public class ClienteService {
                     }
                     contadorLinha = contadorLinha + 1;
                     
-                    String dadosCLiente = contadorLinha + ";" + cliente.getNome() + ";" + cliente.getCpf() +  ";" + cliente.getTelefone() + "\n";
+                    String dadosCLiente = contadorLinha + ";" + fornecedor.getRazaoSocial() + ";" + fornecedor.getFantasia() +  ";" + fornecedor.getCnpj() + ";" + fornecedor.getTipoPessoa() + "\n";
                         
                     FileWriter escreverArquivo = new FileWriter(dirUserDB, true);
     
@@ -76,7 +78,7 @@ public class ClienteService {
                 } else {
     
                     criarArquivo();
-                    escrever (cliente);
+                    escrever (fornecedor);
     
                 }
     
@@ -91,7 +93,7 @@ public class ClienteService {
             return false;
         }
     
-        public boolean ler(Cliente cliente) {
+        public boolean ler(Fornecedor fornecedor) {
             try {
                 if (existeArquivo()) {
     
@@ -103,7 +105,7 @@ public class ClienteService {
                     while ((linha = memoriaLeitura.readLine()) != null) {
                         String[] linhaSplit = linha.split(";");
     
-                        if (cliente.getNome().equals(linhaSplit[1])) {
+                        if (fornecedor.getRazaoSocial().equals(linhaSplit[1])) {
                             return true;
     
                         }
@@ -121,8 +123,8 @@ public class ClienteService {
             return false;
         }
     
-        public boolean excluir(Cliente cliente) {
-            boolean excluirCliente = false;
+        public boolean excluir(Fornecedor fornecedor) {
+            boolean excluirFornecedor = false;
             try {
                 File fw = new File(dirUserDB);
                 if (existeArquivo()) {
@@ -130,16 +132,16 @@ public class ClienteService {
                     FileReader fr = new FileReader(dirUserDB);
                     BufferedReader bf = new BufferedReader(fr);
     
-                    ArrayList <String> listaClienteGravar = new ArrayList<>();
+                    ArrayList <String> listaForncedorGravar = new ArrayList<>();
     
                     String linha = null;
     
                     while ((linha = bf.readLine()) != null) {
                         String[] linhaSplit = linha.split(";");
-                        if (!cliente.getNome().equals(linhaSplit[1])){
-                           listaClienteGravar.add(linha);
+                        if (!fornecedor.getRazaoSocial().equals(linhaSplit[1])){
+                            listaForncedorGravar.add(linha);
                         }else {
-                               excluirCliente = true;
+                               excluirFornecedor = true;
                         }
                          
                     }
@@ -150,7 +152,7 @@ public class ClienteService {
                         FileWriter escreverArquivo = new FileWriter(dirUserDB, false);
                         BufferedWriter memoriaEscrita = new BufferedWriter(escreverArquivo);
                         
-                        for (String novaLinha : listaClienteGravar){
+                        for (String novaLinha : listaForncedorGravar){
     
                             memoriaEscrita.write(novaLinha);
                             memoriaEscrita.newLine();
@@ -175,29 +177,29 @@ public class ClienteService {
         {
                 System.out.println("Erro Exception: " + e.getMessage());
             }
-            return excluirCliente;
+            return excluirFornecedor;
         }
     
-        public boolean atualizar(Cliente cliente) {
+        public boolean atualizar(Fornecedor fornecedor) {
             File fw = new File(dirUserDB);
-            boolean atualizarCliente = false;
+            boolean atualizarFornecedor = false;
             try {
                 if (existeArquivo()) {
                    
                     FileReader fr = new FileReader(dirUserDB);
                     BufferedReader bf = new BufferedReader(fr);
                     
-                    ArrayList <String> listaClienteGravar = new ArrayList<>();
+                    ArrayList <String> listaFornecedorGravar = new ArrayList<>();
                     String linha = null;
     
                     while ((linha = bf.readLine()) != null) {
                         String[] linhaSplit = linha.split(";");
-                        if (cliente.getNome().equals(linhaSplit[1])){
-                            String novaLinha = linhaSplit[0] + ";" + linhaSplit[1] + ";" + linhaSplit[2] + ";" + cliente.getTelefone();
-                            listaClienteGravar.add(novaLinha);
-                            atualizarCliente = true;
+                        if (fornecedor.getRazaoSocial().equals(linhaSplit[1])){
+                            String novaLinha = linhaSplit[0] + ";" + linhaSplit[1] + ";" + linhaSplit[2] + ";" +  linhaSplit[3] + ";" + fornecedor.getFantasia();
+                            listaFornecedorGravar.add(novaLinha);
+                            atualizarFornecedor = true;
                         }else {
-                            listaClienteGravar.add(linha);
+                            listaFornecedorGravar.add(linha);
                         }
     
                     }
@@ -208,7 +210,7 @@ public class ClienteService {
                         FileWriter escreverArquivo = new FileWriter(dirUserDB, false);
                         BufferedWriter memoriaEscrita = new BufferedWriter(escreverArquivo);
                         
-                        for (String novaLinha : listaClienteGravar){
+                        for (String novaLinha : listaFornecedorGravar){
     
                             memoriaEscrita.write(novaLinha);
                             memoriaEscrita.newLine();
@@ -223,7 +225,7 @@ public class ClienteService {
             System.out.println("Erro" + e.getMessage());
     
         }
-        return atualizarCliente;
+        return atualizarFornecedor;
     }
         private boolean existeArquivo() {
             File arquivo = new File(dirUserDB);

@@ -38,7 +38,7 @@ public class MenuView {
 
                         case 2:
                                 FornecedorView fornecedor = new FornecedorView();
-                                fornecedor.menuFornecedor(null);
+                                fornecedor.menuFornecedor();
                                 break;
 
                         case 3:
