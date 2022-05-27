@@ -1,132 +1,145 @@
-package view;
-import model.Fornecedor;
+package view ;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class FornecedorView {
-	
-	
-	public void menuFornecedor(Fornecedor fornecedor) {
-	    Scanner ler = new Scanner(System.in);
+import controller.FornecedorController;
+import model.Fornecedor;
+
+
+public class FornecedorView{
+
+
+	public void menuFornecedor(){
+		Scanner ler =new Scanner(System.in);
 
 	    System.out.println("");
 	    System.out.println("____________________________");
-	    System.out.println("  *** Menu de Fornecedor ***");
-	    System.out.println("");
-	    System.out.println("[1]- Cadastrar");
-	    System.out.println("[2]- Listar Todos");
-	    System.out.println("[3]- Atualizar");
-	    System.out.println("[4]- Deletar");
-	    System.out.println("[5]- Voltar para o Menu");
-	    System.out.println("");
-	    int x=ler.nextInt();
-	    System.out.println("____________________________");
-	    System.out.println("");
-	    
-	 
-
-	    switch(x){
-	        case 1 : menuCadastro(null);
-			  break;
-	        case 2 : menuListar(fornecedor);
-			  break;
-	        case 3 : menuAtualizar(fornecedor);
-			  break;
-	        case 4 : menuDeletar(fornecedor);
-			  break;
-	        case 5 : MenuView menu = new MenuView();
-	          menu.menu();
-			  break;
-	        default: System.out.println("Opcao invalida !");
-			  menuFornecedor(null);
-			  break;
-	    }
-
-
-	}	
-
-	public void menuCadastro(Fornecedor fornecedor) {
-			
-	    Scanner ler = new Scanner(System.in);
-	    
-	    System.out.println("");
+		System.out.println("  *** Menu de Fornecedor ***");
+		System.out.println("");
+		System.out.println("[1]- Cadastrar");
+		System.out.println("[2]- Listar Todos");
+		System.out.println("[3]- Atualizar");
+		System.out.println("[4]- Deletar");
+		System.out.println("[5]- Voltar para o Menu");
+		System.out.println("");
+		int x=ler.nextInt();
+		System.out.println("____________________________");
+        System.out.println("");
+		
+       switch (x) {
+       
+       case 1 : cadastrarFornecedor();break;
+       case 2 : listarFornecedor();break;
+       case 3 : atualizarFornecedor();break;
+       case 4 : deletarFornecedor();break;
+	   case 5 : MenuView menu = new MenuView();
+	            menu.menu();break;
+	   default: System.out.println("Opcao invalida !");break;
+       }
+        
+	}
+	
+	public void cadastrarFornecedor() {
+		
+		Scanner ler =new Scanner(System.in);
+		Fornecedor fornecedor = new Fornecedor();
+		FornecedorController fornecedorController = new FornecedorController();
+		
+		System.out.println("");
 	    System.out.println("______________________________");
-	    System.out.println(" *** Cadastro de Fornecedor ***");
-	    System.out.println(" ");
-	    System.out.print("Informe o id:");
-	    fornecedor.setId(ler.nextInt());
-	    System.out.print("Informe Raz�o Social:");
-	    fornecedor.setRazaoSocial(ler.next());
-	    System.out.print("Informe Fantasia  :");
-	    fornecedor.setFantasia(ler.next());
-	    System.out.println("Informe Tipo Pessoa");
-	    System.out.println("Digite 0 para Pessoa Jur�dica");
-	    System.out.println("Digite 1 para Pessoa F�sica");
-	    fornecedor.setTipoPessoa(ler.nextInt());
-	    System.out.println("Infrome o CNPJ :");
-	    fornecedor.setCnpj(ler.next());
-	    System.out.println("");
-	    System.out.println(" *** Cadastro Realizado! ***");
-	    System.out.println("______________________________");
-	    System.out.println("");
-
-	        
-	    menuFornecedor(null);
+		System.out.println(" *** Cadastro de Fornecedor ***");
+		System.out.println(" ");
+		System.out.println("Digite [F] para pessoa fisica");
+		System.out.println("Digite [J] para pessoa  juridica");
+		 fornecedor.setTipoPessoa(ler.nextLine());
+			System.out.println("Informe a Razao Social: ");
+			fornecedor.setRazaoSocial(ler.nextLine());
+		   System.out.print("Iforme o seu CNPJ:");
+			fornecedor.setCnpj(ler.nextLine()); 
+            System.out.println("Informe a Fantasia: ");
+	   	    fornecedor.setFantasia(ler.nextLine()); 
+			   System.out.println("");
+			   System.out.println("______________________________");
+			   System.out.println("");
+			   System.out.println();
+			   System.out.println(fornecedorController.cadastrar(fornecedor));
+	   
+			   menuFornecedor();   	
+		
 	}
+	
+	public void listarFornecedor () {
+        FornecedorController fornecedorController = new FornecedorController();
+        ArrayList <Fornecedor> listaFornecedor = fornecedorController.listar();
 
-	public void menuListar(Fornecedor fornecedor) {
+		if (listaFornecedor.isEmpty()){
+		   System.out.println("Não possui cadastro");
+		}else{
+			System.out.println("");
+			System.out.println("________________________________________");
+			System.out.println("    *** Lista de Fornecedores ***");
+			System.out.println("");
+
+			for(int i = 0 ; i < listaFornecedor.size() ; i ++){
+				System.out.println(listaFornecedor.get(i).toString());
+			}
+			System.out.println("");
+			System.out.println("________________________________________");
+			System.out.println("");
+				
+		}
+		menuFornecedor();
+
+	}
+	
+	public void atualizarFornecedor() {
+		Scanner ler =new Scanner(System.in);
+		Fornecedor fornecedor = new Fornecedor();
+
+		System.out.println("");
+		System.out.println("__________________________________");
+	    System.out.println("Informe a Razão Social / Nome: ");
+		  fornecedor.setRazaoSocial(ler.nextLine());
+		System.out.print("Informe a nova Fantasia :");
+		  fornecedor.setFantasia(ler.nextLine());	
+		System.out.println("");
+          FornecedorController fornecedorController = new FornecedorController();	  
+		  if (!fornecedorController.atualizar(fornecedor)){
+			  System.out.println("Fornecedor não encontrado ");
+			  System.out.println("__________________________________");
+			  System.out.println("");
+		  }else {
+			System.out.println(" *** Atualizado com sucesso ! ***"); 
+			System.out.println("__________________________________");
+			System.out.println("");
+		  }
 	    
-	    System.out.println("");
-	    System.out.println("__________________________________");
-	    System.out.println("  *** Lista de Fornecedores  ***");
-	    System.out.println("");
-	    System.out.println("Raz�o Social :" + fornecedor.getRazaoSocial() );
-	    System.out.println("Fantasia   : "+ fornecedor.getFantasia());
-	    if (fornecedor.getTipoPessoa()==0) {
-	    System.out.println("Tipo Pessoa Jur�dica");	
-	    }else {
-	    System.out.println("Tipo Pessoa F�sica");		
-	    }
-	    System.out.println("CNPJ :"+fornecedor.getCnpj());
-	    System.out.println("");
-	    System.out.println("__________________________________");
-	    System.out.println("");
-	    
-	    menuFornecedor(null);
+		menuFornecedor();
 	}
 
+	public void deletarFornecedor() {
+		    Scanner ler =new Scanner(System.in);
+		    Fornecedor fornecedor = new Fornecedor();
 
-
-	public void menuAtualizar(Fornecedor fornecedor){
-	  Scanner ler = new Scanner(System.in);
-
-	System.out.println("");
-	System.out.println("__________________________________");
-	System.out.print("Atualizando Raz�o Social :");
-	fornecedor.setRazaoSocial (ler.nextLine());
-	System.out.print("Atualizando Fantasia :");
-	fornecedor.setFantasia (ler.nextLine());
-	System.out.println("Atualizar CNPJ :");
-	fornecedor.setCnpj(ler.nextLine());	
-	System.out.println("Atualizar Tipo Pessoa :");
-	fornecedor.setTipoPessoa(ler.nextInt());	
-	System.out.println("Atualizado com sucesso !!!");
-	System.out.println("");
-	System.out.println("__________________________________");
-
-	menuFornecedor(null);
+		    System.out.println("");
+		    System.out.println("__________________________________");
+		    System.out.println("");
+			System.out.println("Informe a Razão Social / Nome: ");
+			 fornecedor.setRazaoSocial(ler.nextLine());
+			FornecedorController fornecedorController = new FornecedorController();
+            if (!fornecedorController.deletar(fornecedor)){
+				System.out.println("Fornecedor não encontrado \n Tente novamente ");
+				System.out.println("");
+				System.out.println("__________________________________");
+				System.out.println("");
+			}else {
+			System.out.println("Cadastro deletado com sucesso !!! ");
+			System.out.println("");
+		    System.out.println("__________________________________");
+			System.out.println("");
+			}	
+		    menuFornecedor();
 	}
-	public void menuDeletar(Fornecedor fornecedor) {
-	    System.out.println("");
-	    System.out.println("__________________________________");
-	    System.out.println("");
-	    System.out.println("Cadastro deletado com sucesso !!! ");
-	    System.out.println("");
-	    System.out.println("__________________________________");
-	    fornecedor.setRazaoSocial(null);
-	    fornecedor.setCnpj(null);
-	    fornecedor.setFantasia(null);
-	    fornecedor.setTipoPessoa(0);
-	    
-	    menuFornecedor(null);
-	}
+	
 }

@@ -6,7 +6,7 @@ public class Fornecedor {
 	private  String razaoSocial;
 	private String fantasia;
 	private String cnpj;
-	private int tipoPessoa;
+	private String tipoPessoa;
 
 	public int getId() {
 		return id;
@@ -33,11 +33,16 @@ public class Fornecedor {
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
-	public int getTipoPessoa() {
+	public String getTipoPessoa() {
 		return tipoPessoa;
 	}
-	public void setTipoPessoa(int tipoPessoa) {
+	public void setTipoPessoa(String tipoPessoa) {
 		this.tipoPessoa = tipoPessoa;
+	}
+	@Override
+	public String toString() {
+
+		return  "ID: " + id +"  Razão Social: " + razaoSocial + " Fantasia: " + fantasia + " CNPJ " + cnpj + " Tipo Pessoa: " + tipoPessoa;
 	}
 
 	

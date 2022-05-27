@@ -36,7 +36,7 @@ public class MenuView {
                     break;
                case 2:
                     FornecedorView fornecedor = new FornecedorView();
-                    fornecedor.menuFornecedor(null);
+                    fornecedor.menuFornecedor();
                     break;
                case 3:
                     TipoPessoaView tipoPessoa = new TipoPessoaView();
