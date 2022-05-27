@@ -194,7 +194,7 @@ public class FornecedorService {
                     while ((linha = bf.readLine()) != null) {
                         String[] linhaSplit = linha.split(";");
                         if (fornecedor.getRazaoSocial().equals(linhaSplit[1])){
-                            String novaLinha = linhaSplit[0] + ";" + linhaSplit[1] + ";" + linhaSplit[2] + ";" +  linhaSplit[3] + ";" + fornecedor.getFantasia();
+                            String novaLinha = linhaSplit[0] + ";" + linhaSplit[1] + ";" +  fornecedor.getFantasia() + ";" +  linhaSplit[3] + ";" + linhaSplit[4] ;
                             listaFornecedorGravar.add(novaLinha);
                             atualizarFornecedor = true;
                         }else {
