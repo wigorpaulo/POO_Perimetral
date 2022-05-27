@@ -50,8 +50,7 @@ public class FornecedorView{
 	    System.out.println("______________________________");
 		System.out.println(" *** Cadastro de Fornecedor ***");
 		System.out.println(" ");
-		System.out.println("Digite [F] para pessoa fisica");
-		System.out.println("Digite [J] para pessoa  juridica");
+		System.out.println("Informe o Tipo pessoa");
 		 fornecedor.setTipoPessoa(ler.nextLine());
 			System.out.println("Informe a Razao Social: ");
 			fornecedor.setRazaoSocial(ler.nextLine());
@@ -66,8 +65,7 @@ public class FornecedorView{
 			   System.out.println(fornecedorController.cadastrar(fornecedor));
 	   
 			   menuFornecedor();   	
-		
-	}
+		 }
 	
 	public void listarFornecedor () {
         FornecedorController fornecedorController = new FornecedorController();
