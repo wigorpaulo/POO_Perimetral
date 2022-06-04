@@ -30,6 +30,20 @@ public class Usuario {
 
     public void setPassword(String password) {
         this.password = password; }
+
+
+    @Override
+    public String toString(){
+        String retorno = "Username Inserido é: "+getUsername() + "\nSenha Inserida: "+getPassword();
+        System.out.println("***Bem Vindo a Lista do Usuário***");
+        System.out.println("" + getUsername());
+        System.out.println("" + getPassword());
+return retorno;
+
+    }
+
+
+
 }
 
 

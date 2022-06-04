@@ -2,7 +2,7 @@ package model;
 import java.util.Date;
 public class Produto {
 
-    private int codigo;
+    private int String;
     private String descricao;
     private String marca;
     private float precoCompra;
@@ -10,9 +10,10 @@ public class Produto {
     private Date dataValidade;
     private int tipoProduto;
     private String cor;
+    private String codigo;
 
-//Get
-    public int getCodigo() {
+    //Get
+    public String getCodigo() {
         return codigo;
     }
 
@@ -44,7 +45,7 @@ public class Produto {
         return cor;
     }
 //Set
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
