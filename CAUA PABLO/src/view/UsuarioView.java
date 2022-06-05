@@ -1,11 +1,12 @@
 package view;
 import controller.UsuarioController;
 import model.Usuario;
-import java.util.Scanner;
+import java.util.ArrayList;
 
-public class UsuarioView {
-    Scanner ler = new Scanner(System.in);
-    
+
+public class UsuarioView extends ApplicationView implements IAppplicationView{
+
+
     //___________________ETAPA DO USUARIO___________________
     public void menuDoUsuario() {
 
@@ -19,6 +20,12 @@ public class UsuarioView {
         }
         if (escolha == 2) {
             menuListar();
+        }
+        if (escolha == 3) {
+            menuAtualizar();
+        }
+        if (escolha == 4) {
+            menuDeletar();
         }
         if (escolha == 5){
             MenuView men = new MenuView();
@@ -38,33 +45,38 @@ public class UsuarioView {
         System.out.println("Informe sua Senha: ");
         username.setPassword(ler.next());
 
+        System.out.println("Informe seu Id: ");
+        username.setId(ler.nextInt());
+
         System.out.println("***CADASTRO REALIZADO***");
-        System.out.println("***Seja Bem Vindo \n\n");
+
+
+        System.out.println(usercontrol.Cadastrar(username));
         menuDoUsuario();
-
-        UsuarioController usercontrol = new UsuarioController();
-        usercontrol.Cadastrar(username);
-
-
 
 
     }
 
     //MÉTODO DE LISTAR
     public void menuListar() {
-
         UsuarioController usercontroll = new UsuarioController();
-        usercontroll.Listar();
+        ArrayList<Usuario> userList = usercontroll.Listar();
 
-        System.out.println("Não posssui usuario cadastrado");
+        if(userList.isEmpty()){
+            System.out.println("Não posssui usuario cadastrado");
 
-
-
-
+        }else{
+           for(int cont = 0; cont < userList.size(); cont++){
+               System.out.println(userList.get(cont).toString());
+           }
+            System.out.println("");
+            System.out.println("***************");
+        }
+        menuDoUsuario();
     }
 
     public void menuAtualizar(){
-Scanner ler = new Scanner(System.in);
+
         Usuario username = new Usuario();
 
         System.out.println("ATUALIZAÇÃO DO USUARIO");
@@ -76,35 +88,35 @@ Scanner ler = new Scanner(System.in);
         System.out.println("Informe sua Senha: ");
         username.setPassword(ler.next());
 
-        UsuarioController usercontrol = new UsuarioController();
+        System.out.println("Informe seu Id: ");
+        username.setId(ler.nextInt());
+
+
+
         if (! usercontrol.Atualizar(username)){
             System.out.println("Usuario não encontrado");
         }else{
             System.out.println("Usuario Atualizado");
         }
 
-
-
+menuDoUsuario();
     }
 
 public void menuDeletar(){
-        Scanner ler = new Scanner(System.in);
+
         Usuario usuario = new Usuario();
 
-    System.out.println("***CADASTRO DO USUARIO***");
+    System.out.println("***Remoção do Usuário***");
     System.out.println("Informe seu Usuario: ");
     usuario.setUsername(ler.next());
 
-    System.out.println("Informe sua Senha: ");
-    usuario.setPassword(ler.next());
 
-    UsuarioController usercontrol = new UsuarioController();
     if(!usercontrol.Deletar(usuario)){
         System.out.println("Usuário não encontrado");
     }else{
-        System.out.println("Usuário excluido com Sucesso!!");
-
+        System.out.println("Usuário excluido com Sucesso!!\n");
     }
+    menuDoUsuario();
 }
 
 }
