@@ -1,5 +1,0 @@
-1; Id Do Usuario: 123; Nome do Usuario: carlos; Senha do Usuario: 123
-1; Id Do Usuario: 123; Nome do Usuario: caua; Senha do Usuario: 123
-1; Id Do Usuario: 1234; Nome do Usuario: fdsfsd; Senha do Usuario: 1234
-1; Id Do Usuario: 41234; Nome do Usuario: cadsafadsf; Senha do Usuario: 1324
-1; Id Do Usuario: 1234; Nome do Usuario: 1234123; Senha do Usuario: 1234
