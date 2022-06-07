@@ -27,7 +27,7 @@ public class MenuView {
         else if(escolhaDoUsuario == 2){
             System.out.println("***Opção Escolhida: Cadastrar Fornecedor***");
             FornecedorView forn1 = new FornecedorView();
-            forn1.CadForn(null);
+            forn1.menuCadastroForn();
         }
 
         else if(escolhaDoUsuario == 3){
@@ -44,8 +44,8 @@ public class MenuView {
 
         else if(escolhaDoUsuario == 5){
             System.out.println("***Opção Escolhida: Cadastrar Cliente***");
-            ClienteView cli1 = new ClienteView();
-            cli1.CadCliente(null);
+            ClienteView cliente = new ClienteView();
+            cliente.menufornCadastro();
         }
 
         else if(escolhaDoUsuario == 6){

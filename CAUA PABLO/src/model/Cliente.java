@@ -33,4 +33,14 @@ public class Cliente {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    @Override
+    public String toString(){
+
+        String retorno = Integer.toString(getId()) + "|| " +getNome() + " ||" +getTelefone();
+
+        return retorno;
+    }
+
+
 }

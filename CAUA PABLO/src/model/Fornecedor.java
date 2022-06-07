@@ -46,7 +46,13 @@ public class Fornecedor {
 
     public void setTipoPessoaid(int tipoPessoaid) {
         TipoPessoaid = tipoPessoaid;
+    }
 
+    @Override
+    public String toString(){
 
+        String retorno = Integer.toString(getId()) + "|| " +getId() + " ||" +getRazaoSocial();
+
+        return retorno;
     }
 }

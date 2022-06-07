@@ -4,7 +4,7 @@ import model.Usuario;
 import java.util.ArrayList;
 
 
-public class UsuarioView extends ApplicationView implements IAppplicationView{
+ public class UsuarioView extends ApplicationView implements IAppplicationView{
 
 
     //___________________ETAPA DO USUARIO___________________

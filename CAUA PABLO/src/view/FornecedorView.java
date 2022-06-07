@@ -1,7 +1,13 @@
 package view;
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import controller.FornecedorController;
+import controller.UsuarioController;
 import model.Fornecedor;
-public class FornecedorView {
+import model.Usuario;
+
+public class FornecedorView extends ApplicationView {
 Scanner ler = new Scanner(System.in);
 
     //___________________ETAPA DO FORNECEDOR___________________
@@ -16,7 +22,7 @@ Scanner ler = new Scanner(System.in);
             menuCadastroForn();
         }
         if (escolha == 2) {
-            menuListarForn(fornecedor);
+            menuListarForn();
         }
         if (escolha == 5){
             MenuView men = new MenuView();
@@ -38,14 +44,31 @@ Scanner ler = new Scanner(System.in);
         System.out.println("***CADASTRO REALIZADO***");
         System.out.println("***Seja Bem Vindo \n\n");
         CadForn(fornecedor);
+        System.out.println("***CADASTRO REALIZADO***");
+
+
+        System.out.println(fornecedorController.Cadastrar(fornecedor));
+
+
     }
 
     //MÉTODO DE LISTAR FORNECEDOR
-    public void menuListarForn(Fornecedor fornecedor) {
-        System.out.println("***Bem Vindo a Lista do Usuário***");
-        System.out.println("" + fornecedor.getFantasia());
-        System.out.println("" + fornecedor.getCnpj());
-        CadForn(null);
+    public void menuListarForn() {
+        fornecedorController = new FornecedorController();
+        ArrayList<Fornecedor> fornList = fornecedorController.Listar();
+
+        if(fornList.isEmpty()){
+            System.out.println("Não posssui usuario cadastrado");
+
+        }else{
+            for(int cont = 0; cont < fornList.size(); cont++){
+                System.out.println(fornList.get(cont).toString());
+            }
+        }
     }
+
+
+
+
 
 }
